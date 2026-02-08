@@ -1,3 +1,17 @@
+# Dependencies
+node_modules
+.pnpm-store
+.pnpm-debug.log*
+
+# Build outputs
+dist
+dist-ssr
+*.local
+
+# TypeScript
+*.tsbuildinfo
+*.tsbuildinfo.*
+
 # Logs
 logs
 *.log
@@ -7,21 +21,79 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Environment variables
+.env*.local
+.env.production
+
+# Testing
+coverage
+.vitest
+*.lcov
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
+*.swp
+*.swo
+*.swn
+*.bak
+*~
+
+# OS files
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE - VSCode
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/*.code-workspace
+
+# IDE - WebStorm
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# IDE - Other
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# Testing
-coverage
+# Temporary files
+tmp
+temp
+*.tmp
+*.temp
+
+# Debug
+debug.log
+*.stackdump
+
+# Optional npm/yarn cache directory
+.npm
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Turbo
+.turbo
+
+# Vercel
+.vercel
+
+# MacOS
+*.DS_Store
+.AppleDouble
+.LSOverride
