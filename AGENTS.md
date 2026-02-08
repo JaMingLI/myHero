@@ -6,7 +6,7 @@
 - **Lib:** i18next (Internationalization)
 - **Language:** TypeScript 5+ (Strict Mode)
 - **Architecture:** Clean Architecture + MVVM (Binder Pattern)
-- **Styling:** SCSS
+- **Styling:** Tailwind CSS
 - **Testing:** Vitest + React Testing Library
 
 ---
@@ -63,8 +63,7 @@ src/
 │   └── slices/          # Slices (ui.slice.ts, auth.slice.ts)
 ├── components/          # [SHARED UI] Reusable dumb components
 ├── styles/              # [STYLING] Global Styles
-│   ├── legacy/          # Legacy styles from old project (do not modify)
-│   └── index.scss       # Project style entry point
+│   └── index.css        # Tailwind entry point (directives)
 ├── layouts/             # [LAYOUT LAYER] Page Layouts (MainLayout, AuthLayout...)
 │   ├── MainLayout/      # Main layout with Header, Sidebar, Footer
 │   │   ├── MainLayout.view-model.ts
@@ -144,9 +143,9 @@ src/
 ```ts
 export const QUERY_KEYS = {
   USER: {
-    ROOT: ['users'] as const,
-    DETAILS: ['users', 'detail'] as const,
-    DETAIL: (id: string) => ['users', 'detail', id] as const,
+    ROOT: ["users"] as const,
+    DETAILS: ["users", "detail"] as const,
+    DETAIL: (id: string) => ["users", "detail", id] as const,
   },
 } as const;
 ```
@@ -154,7 +153,7 @@ export const QUERY_KEYS = {
 ### B. Domain: Service (`src/domain/services/user/get-user.usecase.ts`)
 
 ```ts
-import { UserRepository } from '../../repositories/user.repo';
+import { UserRepository } from "../../repositories/user.repo";
 
 export interface UserDto {
   id: string;
@@ -174,8 +173,8 @@ export const getUserUsecase = async (id: string): Promise<UserDto> => {
 ### C. Client Store (`src/store/index.ts`)
 
 ```ts
-import { create } from 'zustand';
-import { createUiSlice, type UiSlice } from './slices/ui.slice';
+import { create } from "zustand";
+import { createUiSlice, type UiSlice } from "./slices/ui.slice";
 
 export const useAppStore = create<UiSlice>()((...a) => ({
   ...createUiSlice(...a),
@@ -185,9 +184,9 @@ export const useAppStore = create<UiSlice>()((...a) => ({
 ### D. MVVM: ViewModel (`src/pages/User/User.view-model.ts`)
 
 ```ts
-import { useQuery, useQueryClient, QUERY_KEYS } from '@/lib/react-query';
-import { useAppStore } from '@/store';
-import { UserService, type UserDto } from '@/domain';
+import { useQuery, useQueryClient, QUERY_KEYS } from "@/lib/react-query";
+import { useAppStore } from "@/store";
+import { UserService, type UserDto } from "@/domain";
 
 export interface UserProps {
   userId: string;
@@ -235,9 +234,9 @@ export const User = bind(UserViewController, UserViewModel);
 
 ```ts
 // Default export for lazy loading
-export { User as default } from './User.view-controller';
+export { User as default } from "./User.view-controller";
 
-export { type UserProps } from './User.view-model';
+export { type UserProps } from "./User.view-model";
 ```
 
 ## 8. Environment Configuration
@@ -257,15 +256,15 @@ export { type UserProps } from './User.view-model';
 **Development (local server):**
 
 ```bash
-npm run dev          # Connect to dev API
-npm run dev:uat      # Connect to uat API
-npm run dev:stage    # Connect to stage API
+pnpm dev             # Connect to dev API
+pnpm dev:uat         # Connect to uat API
+pnpm dev:stage       # Connect to stage API
 ```
 
 **Build:**
 
 ```bash
-npm run build        # Build for prod (always production)
+pnpm build           # Build for prod (always production)
 ```
 
 ### C. Adding Environment Variables
@@ -287,43 +286,19 @@ VITE_FEATURE_FLAG=true
 const apiUrl = import.meta.env.VITE_API_URL;
 ```
 
-### D. API Proxy (Dev Server)
+### D. API Connection Strategy
 
-During local development, Vite dev server proxies API requests to avoid CORS issues.
-
-**Configuration:** `vite.config.ts`
-
-```ts
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '');
-
-  return {
-    server: {
-      proxy: {
-        '/moapi': {
-          target: env.VITE_API_URL, // Auto-switches based on mode
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/moapi/, ''),
-        },
-      },
-    },
-  };
-});
-```
-
-**How it works:**
+**How it works (GitHub Activity API Example):**
 
 ```text
-npm run dev:uat
+Frontend: GET https://api.github.com/users/{username}/events
     ↓
-Frontend: GET /moapi/users
-    ↓
-Vite proxy → https://uat-api.example.com/users
+Direct request to GitHub Public API
     ↓
 Response returns to frontend
 ```
 
-**Constraint:** `src/lib/axios` uses `baseURL: '/moapi'` (relative path). The proxy handles the actual API routing.
+**Constraint:** Direct calls to external APIs. Ensure `src/lib/axios` is configured with the correct base URLs for external services.
 
 ---
 
@@ -395,23 +370,23 @@ When implementing a new feature (e.g., "Product List"):
 ### D. Example: ViewModel Test
 
 ```ts
-import { renderHook, act } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-import { UserViewModel } from './User.view-model';
-import { UserService } from '@/domain';
+import { renderHook, act } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { UserViewModel } from "./User.view-model";
+import { UserService } from "@/domain";
 
 // Mock Dependencies
-vi.mock('@/domain');
-vi.mock('@/store', () => ({ useAppStore: () => ({ isSidebarOpen: true }) }));
-vi.mock('@/lib/react-query', () => ({
-  useQuery: () => ({ data: { id: '1', fullName: 'Test User' } }),
+vi.mock("@/domain");
+vi.mock("@/store", () => ({ useAppStore: () => ({ isSidebarOpen: true }) }));
+vi.mock("@/lib/react-query", () => ({
+  useQuery: () => ({ data: { id: "1", fullName: "Test User" } }),
 }));
 
-describe('UserViewModel', () => {
-  it('should return formatted user data', () => {
-    const { result } = renderHook(() => UserViewModel({ userId: '1' }));
+describe("UserViewModel", () => {
+  it("should return formatted user data", () => {
+    const { result } = renderHook(() => UserViewModel({ userId: "1" }));
 
-    expect(result.current.user?.fullName).toBe('Test User');
+    expect(result.current.user?.fullName).toBe("Test User");
     expect(result.current.isSidebarOpen).toBe(true);
   });
 });
@@ -442,7 +417,7 @@ We follow the [Angular Commit Message Guidelines](https://github.com/angular/ang
 | **refactor** | Code change that neither fixes a bug nor adds a feature       |
 | **perf**     | Performance improvements                                      |
 | **test**     | Adding or correcting tests                                    |
-| **build**    | Changes to build system or dependencies (e.g., npm, vite)     |
+| **build**    | Changes to build system or dependencies (e.g., pnpm, vite)    |
 | **ci**       | Changes to CI configuration (e.g., GitHub Actions, GitLab CI) |
 | **infras**   | Infrastructure related changes                                |
 | **chore**    | Other changes that don't modify src or test files             |
