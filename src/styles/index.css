@@ -2,14 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lucide&display=swap');
+
+:root {
+  /* Base colors */
+  --black: #000000;
+  --white: #ffffff;
+  
+  /* Landing page specific colors */
+  --color-bg-primary: #0A0F1C;
+  --color-bg-secondary: #1E293B;
+  --color-accent: #22D3EE;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-border: #1E293B;
+  
+  /* Light theme (default) - Neutral base */
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #fafafa;
+  --card-foreground: #0a0a0a;
+  --popover: #fafafa;
+  --popover-foreground: #0a0a0a;
+  --primary: #171717;
+  --primary-foreground: #fafafa;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
+  --destructive: #e7000b;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #a3a3a3;
+  --sidebar: #fafafa;
+  --sidebar-accent: #f4f4f4;
+  --sidebar-accent-foreground: #18181b;
+  --sidebar-border: #e4e4e7;
+  --sidebar-foreground: #09090b;
+  --sidebar-primary: #18181b;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-ring: #71717a;
+}
+
+
+
 /* Custom base styles */
 @layer base {
-  html {
-    @apply antialiased;
+  html, body {
+    @apply antialiased h-full;
   }
 
   body {
-    @apply bg-white text-gray-900;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Font family utilities */
+  .font-primary {
+    font-family: "Inter", sans-serif;
+  }
+
+  .font-secondary {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  .font-icon {
+    font-family: "Lucide";
+    font-weight: normal;
+    font-style: normal;
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 

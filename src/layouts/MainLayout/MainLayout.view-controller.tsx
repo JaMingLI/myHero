@@ -1,5 +1,4 @@
 import { bind } from "@/utils";
-import { cn } from "@/lib/utils";
 import {
   MainLayoutViewModel,
   type IMainLayoutViewModel,
@@ -7,90 +6,108 @@ import {
 
 function MainLayoutViewController({
   children,
-  isSidebarOpen,
-  toggleSidebar,
 }: IMainLayoutViewModel) {
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside
-        className={cn(
-          "fixed left-0 top-0 z-40 h-screen bg-gray-800 text-white transition-transform",
-          isSidebarOpen ? "w-64 translate-x-0" : "-translate-x-full w-64"
-        )}
-      >
-        <div className="flex h-16 items-center justify-between px-4">
-          <span className="text-xl font-bold">MyHero</span>
-          <button
-            onClick={toggleSidebar}
-            className="rounded p-1 hover:bg-gray-700"
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+    <div className="flex flex-col h-full w-full bg-[var(--color-bg-primary)]">
+      {/* Header */}
+      <header className="flex items-center justify-between h-16 px-12 border-b border-[var(--color-border)]">
+        {/* Logo Area */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center w-8 h-8 bg-[var(--color-accent)] rounded-md">
+            <span className="font-secondary text-[var(--color-bg-primary)] text-base font-bold">
+              A
+            </span>
+          </div>
+          <span className="font-secondary text-[var(--color-text-primary)] text-base font-semibold">
+            Alen.dev
+          </span>
         </div>
-        <nav className="mt-4 px-4">
+
+        {/* Navigation */}
+        <nav className="flex items-center gap-8">
           <a
-            href="/"
-            className="block rounded px-4 py-2 hover:bg-gray-700"
+            href="#home"
+            className="font-primary text-sm font-medium text-[var(--color-accent)]"
           >
             Home
           </a>
           <a
-            href="/dashboard"
-            className="block rounded px-4 py-2 hover:bg-gray-700"
+            href="#projects"
+            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
           >
-            Dashboard
+            Projects
           </a>
+          <a
+            href="#skills"
+            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            Skills
+          </a>
+          <a
+            href="#activity"
+            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            Activity
+          </a>
+          <a
+            href="#contact"
+            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            Contact
+          </a>
+
+          {/* Theme Toggle */}
+          <button className="flex items-center justify-center w-9 h-9 bg-[var(--color-bg-secondary)] rounded-md hover:bg-[#2d3a4f] transition-colors">
+            <span className="font-icon text-[var(--color-text-secondary)] text-[18px]" style={{ fontWeight: 100 }}>
+              
+            </span>
+          </button>
         </nav>
-      </aside>
+      </header>
 
-      {/* Main content */}
-      <div
-        className={cn(
-          "flex-1 transition-all",
-          isSidebarOpen ? "ml-64" : "ml-0"
-        )}
-      >
-        {/* Header */}
-        <header className="sticky top-0 z-30 flex h-16 items-center border-b bg-white px-4">
-          {!isSidebarOpen && (
-            <button
-              onClick={toggleSidebar}
-              className="mr-4 rounded p-1 hover:bg-gray-100"
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          )}
-          <h1 className="text-xl font-semibold">My Hero App</h1>
-        </header>
+      {/* Page content */}
+      <main className="flex-1 overflow-auto">
+        {children}
+      </main>
 
-        {/* Page content */}
-        <main className="p-6">{children}</main>
-      </div>
+      {/* Footer */}
+      <footer className="flex items-center justify-between h-16 px-12 border-t border-[var(--color-border)]">
+        <span className="font-primary text-[13px] text-[var(--color-text-muted)]">
+          © 2025 Alen. All rights reserved.
+        </span>
+
+        {/* Social Links */}
+        <div className="flex items-center gap-4">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            <span className="font-icon text-[20px]" style={{ fontWeight: 100 }}>
+              
+            </span>
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            <span className="font-icon text-[20px]" style={{ fontWeight: 100 }}>
+              
+            </span>
+          </a>
+          <a
+            href="mailto:contact@example.com"
+            className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            <span className="font-icon text-[20px]" style={{ fontWeight: 100 }}>
+              
+            </span>
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
