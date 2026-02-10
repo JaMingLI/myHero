@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { MainLayout } from "@/layouts";
+import { HomePage } from "@/pages";
 import { PATHS } from "./paths";
 
 function LoadingFallback() {
@@ -27,14 +27,7 @@ export function AppRoutes() {
   return (
     <Suspense fallback={<LoadingFallback />}>
       <Routes>
-        <Route
-          path={PATHS.HOME}
-          element={
-            <MainLayout>
-              {/* TODO: pages */}
-            </MainLayout>
-          }
-        />
+        <Route path={PATHS.HOME} element={<HomePage />} />
         <Route path={PATHS.NOT_FOUND} element={<NotFound />} />
       </Routes>
     </Suspense>
