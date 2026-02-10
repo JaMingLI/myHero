@@ -94,3 +94,52 @@
     @apply btn bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500;
   }
 }
+
+/* Animation keyframes */
+@keyframes avatar-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes btn-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 20px rgba(34, 211, 238, 0.4);
+  }
+  50% {
+    box-shadow: 0 2px 30px rgba(34, 211, 238, 0.6);
+  }
+}
+
+/* Avatar glow animation */
+.avatar-glow {
+  animation: avatar-glow 2.5s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* Typing cursor animation */
+.typing-cursor-blink {
+  animation: cursor-blink 0.8s ease-in-out infinite;
+}
+
+/* Primary button glow pulse on desktop */
+@media (min-width: 1024px) {
+  .btn-primary-glow {
+    animation: btn-glow-pulse 2s ease-in-out infinite;
+    will-change: box-shadow;
+  }
+}

@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, JSX } from "react";
 
 /**
  * MVVM Binder HOC
@@ -20,13 +20,13 @@ import type { ComponentType } from "react";
  * export const User = bind(UserViewController, UserViewModel);
  * ```
  */
-export function bind<TProps, TViewModel extends TProps>(
+export function bind<TProps extends object, TViewModel extends TProps>(
   ViewController: ComponentType<TViewModel>,
   useViewModel: (props: TProps) => TViewModel
 ): ComponentType<TProps> {
   function BoundComponent(props: TProps) {
     const viewModel = useViewModel(props);
-    return <ViewController {...viewModel} />;
+    return <ViewController {...(viewModel as TViewModel & JSX.IntrinsicAttributes)} />;
   }
 
   // Set display name for React DevTools

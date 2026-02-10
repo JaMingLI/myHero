@@ -3,6 +3,12 @@ import {
   MainLayoutViewModel,
   type IMainLayoutViewModel,
 } from "./MainLayout.view-model";
+import {
+  IconMoon,
+  IconGitHub,
+  IconLinkedin,
+  IconMail,
+} from "@/assets";
 
 function MainLayoutViewController({
   children,
@@ -58,9 +64,7 @@ function MainLayoutViewController({
 
           {/* Theme Toggle */}
           <button className="flex items-center justify-center w-9 h-9 bg-[var(--color-bg-secondary)] rounded-md hover:bg-[#2d3a4f] transition-colors">
-            <span className="font-icon text-[var(--color-text-secondary)] text-[18px]" style={{ fontWeight: 100 }}>
-              
-            </span>
+            <img src={IconMoon} alt="Theme" className="w-[18px] h-[18px] opacity-70" />
           </button>
         </nav>
       </header>
@@ -84,9 +88,7 @@ function MainLayoutViewController({
             rel="noopener noreferrer"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
           >
-            <span className="font-icon text-[20px]" style={{ fontWeight: 100 }}>
-              
-            </span>
+            <img src={IconGitHub} alt="GitHub" className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
           <a
             href="https://linkedin.com"
@@ -94,17 +96,13 @@ function MainLayoutViewController({
             rel="noopener noreferrer"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
           >
-            <span className="font-icon text-[20px]" style={{ fontWeight: 100 }}>
-              
-            </span>
+            <img src={IconLinkedin} alt="LinkedIn" className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
           <a
             href="mailto:contact@example.com"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
           >
-            <span className="font-icon text-[20px]" style={{ fontWeight: 100 }}>
-              
-            </span>
+            <img src={IconMail} alt="Email" className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
         </div>
       </footer>
