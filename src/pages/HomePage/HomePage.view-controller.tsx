@@ -6,13 +6,11 @@ import {
 } from "./HomePage.view-model";
 import {
   IconUser,
-  IconSmartPhone,
-  IconCode,
-  IconBot,
   IconFolder,
   IconArrowRight,
   IconMail,
 } from "@/assets";
+import { WorldAirportsVoronoi } from "@/components";
 import type { Variants } from "@/lib/framer-motion";
 
 // Animation variants for staggered entry
@@ -44,6 +42,7 @@ const buttonVariants: Variants = {
 function HomePageViewController({
   roleText,
   isTypingComplete,
+  isDesktop,
   t,
 }: IHomePageViewModel) {
   return (
@@ -56,44 +55,24 @@ function HomePageViewController({
       >
         {/* Avatar Section - Mobile/Tablet: 先顯示, Desktop: 移到右邊 */}
         <motion.div
-          className="flex flex-col items-center justify-center lg:order-2 lg:w-[400px] lg:h-[400px]"
+          className="flex flex-col items-center justify-center lg:order-2 lg:size-[clamp(400px,min(50vw,calc(100vh-200px)),900px)]"
           variants={itemVariants}
         >
-          {/* Avatar with Glow Effect */}
-          <div className="flex items-center justify-center w-[110px] h-[110px] md:w-[150px] md:h-[150px] lg:w-[280px] lg:h-[280px] rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-bg-primary)] avatar-glow">
-            <div className="flex items-center justify-center w-[102px] h-[102px] md:w-[140px] md:h-[140px] lg:w-[260px] lg:h-[260px] rounded-full bg-[var(--color-bg-secondary)]">
-              <img
-                src={IconUser}
-                alt="Avatar"
-                className="w-10 h-10 md:w-14 md:h-14 lg:w-20 lg:h-20 opacity-50"
-              />
+          {/* Desktop: World Airports Voronoi Globe */}
+          {isDesktop ? (
+            <WorldAirportsVoronoi autoRotate className="w-full h-full" />
+          ) : (
+            /* Mobile/Tablet: Avatar with Glow Effect */
+            <div className="flex items-center justify-center w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-bg-primary)] avatar-glow">
+              <div className="flex items-center justify-center w-[102px] h-[102px] md:w-[140px] md:h-[140px] rounded-full bg-[var(--color-bg-secondary)]">
+                <img
+                  src={IconUser}
+                  alt="Avatar"
+                  className="w-10 h-10 md:w-14 md:h-14 opacity-50"
+                />
+              </div>
             </div>
-          </div>
-
-          {/* Tech Badges - Desktop only */}
-          <motion.div
-            className="hidden lg:flex items-center gap-3 pt-6"
-            variants={itemVariants}
-          >
-            <div className="flex items-center gap-[6px] px-3 py-[6px] bg-[var(--color-bg-secondary)] rounded-2xl">
-              <img src={IconSmartPhone} alt={t("badges.mobile")} className="w-[14px] h-[14px]" />
-              <span className="font-secondary text-[11px] font-medium text-[var(--color-text-secondary)]">
-                {t("badges.mobile")}
-              </span>
-            </div>
-            <div className="flex items-center gap-[6px] px-3 py-[6px] bg-[var(--color-bg-secondary)] rounded-2xl">
-              <img src={IconCode} alt={t("badges.frontend")} className="w-[14px] h-[14px]" />
-              <span className="font-secondary text-[11px] font-medium text-[var(--color-text-secondary)]">
-                {t("badges.frontend")}
-              </span>
-            </div>
-            <div className="flex items-center gap-[6px] px-3 py-[6px] bg-[var(--color-bg-secondary)] rounded-2xl">
-              <img src={IconBot} alt={t("badges.aiTools")} className="w-[14px] h-[14px]" />
-              <span className="font-secondary text-[11px] font-medium text-[var(--color-text-secondary)]">
-                {t("badges.aiTools")}
-              </span>
-            </div>
-          </motion.div>
+          )}
         </motion.div>
 
         {/* Content Section - Desktop: 左邊 */}
