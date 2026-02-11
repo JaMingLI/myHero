@@ -9,12 +9,19 @@
  */
 
 // Services (Use Cases)
-// TODO: services
+import {
+  getRepositoriesUsecase,
+  getActivityUsecase,
+} from "./services";
 
 // Re-export as Service objects for cleaner API
-// TODO: services
+export const GitHubService = {
+  getRepositories: getRepositoriesUsecase,
+  getActivity: getActivityUsecase,
+};
 
 // Export DTOs
+export type { RepoDto, ActivityDto, ActivityEventType } from "./services";
 
 // Export constants
 export { USER_ROLES, type UserRole } from "./constants";

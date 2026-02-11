@@ -8,5 +8,9 @@ export const QUERY_KEYS = {
     DETAILS: ["users", "detail"] as const,
     DETAIL: (id: string) => ["users", "detail", id] as const,
   },
-  // Add more query key factories as needed
+  GITHUB: {
+    ROOT: ["github"] as const,
+    REPOS: (username: string) => ["github", "repos", username] as const,
+    ACTIVITY: (username: string) => ["github", "activity", username] as const,
+  },
 } as const;
