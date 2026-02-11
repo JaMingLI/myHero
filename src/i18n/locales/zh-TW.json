@@ -106,5 +106,37 @@
     "loading": "載入中...",
     "noRepos": "未找到程式庫",
     "noActivity": "無近期活動"
+  },
+  "contact": {
+    "title": "聯絡我",
+    "subtitle": "有任何問題或想要合作？歡迎留言給我。",
+    "form": {
+      "name": "姓名",
+      "namePlaceholder": "您的姓名",
+      "email": "電子郵件",
+      "emailPlaceholder": "your@email.com",
+      "subject": "主旨",
+      "subjectPlaceholder": "這是關於什麼？",
+      "message": "訊息內容",
+      "messagePlaceholder": "在此輸入您的訊息...",
+      "submit": "發送訊息",
+      "sending": "發送中..."
+    },
+    "info": {
+      "email": "電子郵件",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "errors": {
+      "nameRequired": "請輸入姓名",
+      "emailRequired": "請輸入電子郵件",
+      "emailInvalid": "請輸入有效的電子郵件",
+      "subjectRequired": "請輸入主旨",
+      "messageRequired": "請輸入訊息內容"
+    },
+    "toast": {
+      "success": "訊息發送成功！",
+      "error": "訊息發送失敗，請重試。"
+    }
   }
 }
