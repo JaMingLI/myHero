@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, ProjectsPage, ActivityPage } from "@/pages";
+import { HomePage, ProjectsPage, ActivityPage, ContactPage } from "@/pages";
 import { MainLayout } from "@/layouts";
 import { PATHS } from "./paths";
 
@@ -32,6 +32,7 @@ export function AppRoutes() {
           <Route path={PATHS.HOME} element={<HomePage />} />
           <Route path={PATHS.PROJECTS} element={<ProjectsPage />} />
           <Route path={PATHS.ACTIVITY} element={<ActivityPage />} />
+          <Route path={PATHS.CONTACT} element={<ContactPage />} />
           <Route path={PATHS.NOT_FOUND} element={<NotFound />} />
         </Routes>
       </MainLayout>

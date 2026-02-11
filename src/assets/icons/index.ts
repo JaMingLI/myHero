@@ -15,6 +15,7 @@ export { default as IconCircle } from './icon-circle.png';
 export { default as IconClose } from './icon-close.png';
 export { default as IconCode } from './icon-code.png';
 export { default as IconDelete } from './icon-delete.png';
+export { default as IconEraser } from './icon-eraser.png';
 export { default as IconEllipsis } from './icon-ellipsis.png';
 export { default as IconExternalLink } from './icon-external-link.png';
 export { default as IconFolderGit2 } from './icon-folder-git-2.png';
