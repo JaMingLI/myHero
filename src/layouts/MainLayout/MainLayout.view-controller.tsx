@@ -1,4 +1,5 @@
 import { bind } from "@/utils";
+import { Link } from "react-router-dom";
 import {
   MainLayoutViewModel,
   type IMainLayoutViewModel,
@@ -15,13 +16,36 @@ import {
 } from "@/assets";
 import { LanguageSwitcher } from "@/components";
 
-function MainLayoutViewController({ children, t }: IMainLayoutViewModel) {
+function MainLayoutViewController({
+  children,
+  t,
+  currentPath,
+  paths,
+}: IMainLayoutViewModel) {
+  // Helper to determine if a path is active
+  const isActive = (path: string) => currentPath === path;
+
+  // Navigation link styles
+  const getNavLinkClass = (path: string) =>
+    isActive(path)
+      ? "font-primary text-sm font-medium text-[var(--color-accent)]"
+      : "font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors";
+
+  // Mobile tab styles
+  const getMobileTabTextClass = (path: string) =>
+    isActive(path)
+      ? "font-primary text-[10px] font-semibold text-[var(--color-accent)]"
+      : "font-primary text-[10px] text-[var(--color-text-muted)]";
+
+  const getMobileTabIconClass = (path: string) =>
+    isActive(path) ? "w-5 h-5" : "w-5 h-5 opacity-50";
+
   return (
     <div className="flex flex-col h-full w-full bg-[var(--color-bg-primary)]">
       {/* Header */}
       <header className="flex items-center justify-between h-16 px-6 md:px-12 lg:px-[120px] border-b border-[var(--color-border)]">
         {/* Logo Area */}
-        <div className="flex items-center gap-3">
+        <Link to={paths.HOME} className="flex items-center gap-3">
           <div className="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 bg-[var(--color-accent)] rounded-md">
             <span className="font-secondary text-base md:text-lg font-bold text-[var(--color-bg-primary)]">
               A
@@ -30,40 +54,25 @@ function MainLayoutViewController({ children, t }: IMainLayoutViewModel) {
           <span className="font-secondary text-base md:text-lg font-semibold text-[var(--color-text-primary)] hidden sm:block">
             Alen.dev
           </span>
-        </div>
+        </Link>
 
         {/* Desktop & Tablet Navigation - md: 以上顯示 */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          <a
-            href="#home"
-            className="font-primary text-sm font-medium text-[var(--color-accent)]"
-          >
+          <Link to={paths.HOME} className={getNavLinkClass(paths.HOME)}>
             {t("navigation.home")}
-          </a>
-          <a
-            href="#projects"
-            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-          >
+          </Link>
+          <Link to={paths.PROJECTS} className={getNavLinkClass(paths.PROJECTS)}>
             {t("navigation.projects")}
-          </a>
-          <a
-            href="#skills"
-            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-          >
+          </Link>
+          <Link to={paths.SKILLS} className={getNavLinkClass(paths.SKILLS)}>
             {t("navigation.skills")}
-          </a>
-          <a
-            href="#activity"
-            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-          >
+          </Link>
+          <Link to={paths.ACTIVITY} className={getNavLinkClass(paths.ACTIVITY)}>
             {t("navigation.activity")}
-          </a>
-          <a
-            href="#contact"
-            className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-          >
+          </Link>
+          <Link to={paths.CONTACT} className={getNavLinkClass(paths.CONTACT)}>
             {t("navigation.contact")}
-          </a>
+          </Link>
 
           {/* Language Switcher */}
           <LanguageSwitcher />
@@ -134,50 +143,58 @@ function MainLayoutViewController({ children, t }: IMainLayoutViewModel) {
 
       {/* Mobile Tab Bar */}
       <div className="flex md:hidden items-center justify-around h-14 px-2 border-t border-[var(--color-border)] bg-[var(--color-bg-primary)]">
-        <a
-          href="#home"
+        <Link
+          to={paths.HOME}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img src={IconHome} alt={t("navigation.home")} className="w-5 h-5" />
-          <span className="font-primary text-[10px] font-semibold text-[var(--color-accent)]">
+          <img
+            src={IconHome}
+            alt={t("navigation.home")}
+            className={getMobileTabIconClass(paths.HOME)}
+          />
+          <span className={getMobileTabTextClass(paths.HOME)}>
             {t("navigation.home")}
           </span>
-        </a>
-        <a
-          href="#projects"
+        </Link>
+        <Link
+          to={paths.PROJECTS}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
           <img
             src={IconFolder}
             alt={t("navigation.projects")}
-            className="w-5 h-5 opacity-50"
+            className={getMobileTabIconClass(paths.PROJECTS)}
           />
-          <span className="font-primary text-[10px] text-[var(--color-text-muted)]">
+          <span className={getMobileTabTextClass(paths.PROJECTS)}>
             {t("navigation.projects")}
           </span>
-        </a>
-        <a
-          href="#activity"
+        </Link>
+        <Link
+          to={paths.ACTIVITY}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
           <img
             src={IconActivity}
             alt={t("navigation.activity")}
-            className="w-5 h-5 opacity-50"
+            className={getMobileTabIconClass(paths.ACTIVITY)}
           />
-          <span className="font-primary text-[10px] text-[var(--color-text-muted)]">
+          <span className={getMobileTabTextClass(paths.ACTIVITY)}>
             {t("navigation.activity")}
           </span>
-        </a>
-        <a
-          href="#contact"
+        </Link>
+        <Link
+          to={paths.CONTACT}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img src={IconMail} alt={t("navigation.contact")} className="w-5 h-5 opacity-50" />
-          <span className="font-primary text-[10px] text-[var(--color-text-muted)]">
+          <img
+            src={IconMail}
+            alt={t("navigation.contact")}
+            className={getMobileTabIconClass(paths.CONTACT)}
+          />
+          <span className={getMobileTabTextClass(paths.CONTACT)}>
             {t("navigation.contact")}
           </span>
-        </a>
+        </Link>
       </div>
     </div>
   );

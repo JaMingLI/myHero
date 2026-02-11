@@ -10,7 +10,8 @@
     "search": "搜尋",
     "noResults": "查無結果",
     "theme": "主題",
-    "menu": "選單"
+    "menu": "選單",
+    "all": "全部"
   },
   "auth": {
     "login": "登入",
@@ -39,5 +40,43 @@
     "mobile": "行動開發",
     "frontend": "前端開發",
     "aiTools": "AI 工具"
+  },
+  "projects": {
+    "title": "專案作品",
+    "subtitle": "展示我近期的工作成果與個人專案。",
+    "filters": {
+      "all": "全部",
+      "reactNative": "React Native",
+      "react": "React",
+      "ai": "AI",
+      "typescript": "TypeScript",
+      "sideProject": "個人專案"
+    },
+    "cards": {
+      "fintrack": {
+        "title": "FinTrack 行動應用",
+        "description": "使用 React Native 和 TypeScript 打造的跨平台個人財務追蹤應用。"
+      },
+      "aiChat": {
+        "title": "AI 聊天助理",
+        "description": "由 LLM API 驅動的智慧聊天機器人介面，支援串流回應。"
+      },
+      "devboard": {
+        "title": "DevBoard 儀表板",
+        "description": "整合 GitHub 與型別安全 API 的開發者生產力儀表板。"
+      },
+      "workout": {
+        "title": "健身追蹤器",
+        "description": "追蹤健身計畫的行動應用，提供個人化進度圖表。"
+      },
+      "codeSnippet": {
+        "title": "程式碼片段工具",
+        "description": "網頁版程式碼片段儲存、整理與分享工具，支援語法高亮。"
+      },
+      "recipeFinder": {
+        "title": "食譜探索",
+        "description": "直覺式食譜推薦應用，支援相機掃描食材功能。"
+      }
+    }
   }
 }
