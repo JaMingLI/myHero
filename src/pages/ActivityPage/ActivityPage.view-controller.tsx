@@ -92,7 +92,7 @@ function ActivityPageViewController({
               </div>
             ) : (
               <motion.div
-                className="space-y-3"
+                className="space-y-3 max-h-[500px] overflow-y-auto p-1 -m-1 pr-2 scrollbar-thin"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
