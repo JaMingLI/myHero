@@ -143,5 +143,19 @@
     "title": "Page Not Found",
     "description": "The page you're looking for doesn't exist or has been removed.",
     "backHome": "Back to Home"
+  },
+  "skills": {
+    "title": "Skill Levels",
+    "hint": "Drag to adjust skill levels",
+    "hintMobile": "Drag to adjust",
+    "reset": "Reset All Skills",
+    "items": {
+      "react": "React",
+      "reactNative": "React Native",
+      "typescript": "TypeScript",
+      "css": "CSS",
+      "git": "Git/CI/CD",
+      "ai": "AI Tools"
+    }
   }
 }
