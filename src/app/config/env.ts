@@ -5,4 +5,5 @@ export const ENV = {
   IS_DEV: import.meta.env.VITE_ENV === "development",
   IS_PROD: import.meta.env.MODE === "production",
   GITHUB_USERNAME: import.meta.env.VITE_GITHUB_USERNAME || "JaMingLI",
+  GITHUB_TOKEN: import.meta.env.VITE_GITHUB_TOKEN || "",
 } as const;

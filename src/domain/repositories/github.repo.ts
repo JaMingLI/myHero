@@ -38,27 +38,28 @@ export interface GitHubEventResp {
  */
 export const GitHubRepository = {
   /**
-   * Get public repositories for a user
+   * Get repositories for authenticated user (includes private repos)
    */
-  async getRepos(username: string): Promise<GitHubRepoResp[]> {
-    const { data } = await githubClient.get<GitHubRepoResp[]>(
-      `/users/${username}/repos`,
-      {
-        params: {
-          sort: "updated",
-          per_page: 6,
-        },
-      }
-    );
+  async getRepos(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    _username: string
+  ): Promise<GitHubRepoResp[]> {
+    const { data } = await githubClient.get<GitHubRepoResp[]>("/user/repos", {
+      params: {
+        sort: "updated",
+        per_page: 6,
+        affiliation: "owner",
+      },
+    });
     return data;
   },
 
   /**
-   * Get public events for a user
+   * Get events for a user (includes private repo events when authenticated)
    */
   async getEvents(username: string): Promise<GitHubEventResp[]> {
     const { data } = await githubClient.get<GitHubEventResp[]>(
-      `/users/${username}/events/public`,
+      `/users/${username}/events`,
       {
         params: {
           per_page: 10,
