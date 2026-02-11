@@ -88,5 +88,23 @@
         "fullDescription": "一款直覺式的食譜探索應用，透過 AI 驅動的相機掃描功能識別食材。使用者可以拍攝手邊的食材照片，獲得個人化的食譜推薦。功能包含飲食偏好篩選、營養資訊、逐步烹飪說明，以及收藏夾功能。"
       }
     }
+  },
+  "activity": {
+    "title": "GitHub 動態",
+    "subtitle": "我在 GitHub 上的最新程式庫與公開活動。",
+    "sections": {
+      "repositories": "近期程式庫",
+      "timeline": "近期活動"
+    },
+    "eventTypes": {
+      "push": "推送",
+      "pr": "PR",
+      "create": "建立",
+      "issue": "議題",
+      "other": "事件"
+    },
+    "loading": "載入中...",
+    "noRepos": "未找到程式庫",
+    "noActivity": "無近期活動"
   }
 }
