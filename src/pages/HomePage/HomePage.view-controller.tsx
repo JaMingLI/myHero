@@ -44,6 +44,7 @@ const buttonVariants: Variants = {
 function HomePageViewController({
   roleText,
   isTypingComplete,
+  t,
 }: IHomePageViewModel) {
   return (
     <section className="flex-1 flex items-center justify-center px-4 md:px-12 lg:px-[120px] py-10 md:py-20">
@@ -75,21 +76,21 @@ function HomePageViewController({
             variants={itemVariants}
           >
             <div className="flex items-center gap-[6px] px-3 py-[6px] bg-[var(--color-bg-secondary)] rounded-2xl">
-              <img src={IconSmartPhone} alt="Mobile" className="w-[14px] h-[14px]" />
+              <img src={IconSmartPhone} alt={t("badges.mobile")} className="w-[14px] h-[14px]" />
               <span className="font-secondary text-[11px] font-medium text-[var(--color-text-secondary)]">
-                Mobile
+                {t("badges.mobile")}
               </span>
             </div>
             <div className="flex items-center gap-[6px] px-3 py-[6px] bg-[var(--color-bg-secondary)] rounded-2xl">
-              <img src={IconCode} alt="Frontend" className="w-[14px] h-[14px]" />
+              <img src={IconCode} alt={t("badges.frontend")} className="w-[14px] h-[14px]" />
               <span className="font-secondary text-[11px] font-medium text-[var(--color-text-secondary)]">
-                Frontend
+                {t("badges.frontend")}
               </span>
             </div>
             <div className="flex items-center gap-[6px] px-3 py-[6px] bg-[var(--color-bg-secondary)] rounded-2xl">
-              <img src={IconBot} alt="AI Tools" className="w-[14px] h-[14px]" />
+              <img src={IconBot} alt={t("badges.aiTools")} className="w-[14px] h-[14px]" />
               <span className="font-secondary text-[11px] font-medium text-[var(--color-text-secondary)]">
-                AI Tools
+                {t("badges.aiTools")}
               </span>
             </div>
           </motion.div>
@@ -104,7 +105,7 @@ function HomePageViewController({
               className="font-secondary text-xs md:text-sm font-medium text-[var(--color-accent)]"
               style={{ letterSpacing: "0.08em" }}
             >
-              Hello, I'm
+              {t("hero.greeting")}
             </span>
           </motion.div>
 
@@ -140,13 +141,10 @@ function HomePageViewController({
             variants={itemVariants}
           >
             <span className="md:hidden">
-              Crafting pixel-perfect mobile experiences with React Native,
-              TypeScript & modern web technologies.
+              {t("hero.descriptionMobile")}
             </span>
             <span className="hidden md:inline">
-              Passionate about building high-quality mobile and web experiences.
-              Specializing in React Native, modern frontend architectures, and
-              AI-powered tooling.
+              {t("hero.descriptionDesktop")}
             </span>
           </motion.p>
 
@@ -166,7 +164,7 @@ function HomePageViewController({
                 alt=""
                 className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
               />
-              View Projects
+              {t("hero.viewProjects")}
               <img
                 src={IconArrowRight}
                 alt=""
@@ -184,7 +182,7 @@ function HomePageViewController({
                 alt=""
                 className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
               />
-              Contact Me
+              {t("hero.contactMe")}
             </motion.button>
           </motion.div>
         </div>

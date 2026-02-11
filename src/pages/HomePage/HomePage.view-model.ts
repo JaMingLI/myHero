@@ -1,4 +1,5 @@
 import { useTypingEffect } from "@/hooks";
+import { useTranslation } from "@/lib/i18n";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface HomePageProps {
@@ -7,6 +8,8 @@ export interface HomePageProps {
 
 export const HomePageViewModel = (_props: HomePageProps) => {
   void _props; // Suppress unused variable warning
+  const { t } = useTranslation();
+
   // Typing effect for the role text (delayed to sync with staggered animation)
   const { displayText: roleText, isComplete: isTypingComplete } = useTypingEffect(
     "React Native Developer",
@@ -16,6 +19,7 @@ export const HomePageViewModel = (_props: HomePageProps) => {
   return {
     roleText,
     isTypingComplete,
+    t,
   };
 };
 

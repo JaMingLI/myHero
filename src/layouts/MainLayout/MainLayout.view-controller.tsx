@@ -15,7 +15,7 @@ import {
 } from "@/assets";
 import { LanguageSwitcher } from "@/components";
 
-function MainLayoutViewController({ children }: IMainLayoutViewModel) {
+function MainLayoutViewController({ children, t }: IMainLayoutViewModel) {
   return (
     <div className="flex flex-col h-full w-full bg-[var(--color-bg-primary)]">
       {/* Header */}
@@ -38,31 +38,31 @@ function MainLayoutViewController({ children }: IMainLayoutViewModel) {
             href="#home"
             className="font-primary text-sm font-medium text-[var(--color-accent)]"
           >
-            Home
+            {t("navigation.home")}
           </a>
           <a
             href="#projects"
             className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
           >
-            Projects
+            {t("navigation.projects")}
           </a>
           <a
             href="#skills"
             className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
           >
-            Skills
+            {t("navigation.skills")}
           </a>
           <a
             href="#activity"
             className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
           >
-            Activity
+            {t("navigation.activity")}
           </a>
           <a
             href="#contact"
             className="font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
           >
-            Contact
+            {t("navigation.contact")}
           </a>
 
           {/* Language Switcher */}
@@ -72,7 +72,7 @@ function MainLayoutViewController({ children }: IMainLayoutViewModel) {
           <button className="flex items-center justify-center w-9 h-9 bg-[var(--color-bg-secondary)] rounded-md hover:bg-[#2d3a52] transition-colors">
             <img
               src={IconMoon}
-              alt="Theme"
+              alt={t("common.theme")}
               className="w-5 h-5 opacity-70"
             />
           </button>
@@ -80,7 +80,7 @@ function MainLayoutViewController({ children }: IMainLayoutViewModel) {
 
         {/* Mobile Hamburger - md: 以下顯示 */}
         <button className="flex md:hidden items-center justify-center w-10 h-10 rounded-md">
-          <img src={IconMenu} alt="Menu" className="w-6 h-6" />
+          <img src={IconMenu} alt={t("common.menu")} className="w-6 h-6" />
         </button>
       </header>
 
@@ -90,7 +90,7 @@ function MainLayoutViewController({ children }: IMainLayoutViewModel) {
       {/* Footer - Desktop & Tablet */}
       <footer className="hidden md:flex items-center justify-between h-16 px-8 md:px-12 lg:px-[120px] border-t border-[var(--color-border)]">
         <span className="font-primary text-[13px] text-[var(--color-text-muted)]">
-          © 2025 Alen. All rights reserved.
+          {t("footer.copyright")}
         </span>
 
         {/* Social Links */}
@@ -138,9 +138,9 @@ function MainLayoutViewController({ children }: IMainLayoutViewModel) {
           href="#home"
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img src={IconHome} alt="Home" className="w-5 h-5" />
+          <img src={IconHome} alt={t("navigation.home")} className="w-5 h-5" />
           <span className="font-primary text-[10px] font-semibold text-[var(--color-accent)]">
-            Home
+            {t("navigation.home")}
           </span>
         </a>
         <a
@@ -149,11 +149,11 @@ function MainLayoutViewController({ children }: IMainLayoutViewModel) {
         >
           <img
             src={IconFolder}
-            alt="Projects"
+            alt={t("navigation.projects")}
             className="w-5 h-5 opacity-50"
           />
           <span className="font-primary text-[10px] text-[var(--color-text-muted)]">
-            Projects
+            {t("navigation.projects")}
           </span>
         </a>
         <a
@@ -162,20 +162,20 @@ function MainLayoutViewController({ children }: IMainLayoutViewModel) {
         >
           <img
             src={IconActivity}
-            alt="Activity"
+            alt={t("navigation.activity")}
             className="w-5 h-5 opacity-50"
           />
           <span className="font-primary text-[10px] text-[var(--color-text-muted)]">
-            Activity
+            {t("navigation.activity")}
           </span>
         </a>
         <a
           href="#contact"
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img src={IconMail} alt="Contact" className="w-5 h-5 opacity-50" />
+          <img src={IconMail} alt={t("navigation.contact")} className="w-5 h-5 opacity-50" />
           <span className="font-primary text-[10px] text-[var(--color-text-muted)]">
-            Contact
+            {t("navigation.contact")}
           </span>
         </a>
       </div>
