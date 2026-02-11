@@ -29,6 +29,7 @@ export const ContactPageViewModel = (
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    mode: "onChange",
     defaultValues: {
       name: "",
       email: "",

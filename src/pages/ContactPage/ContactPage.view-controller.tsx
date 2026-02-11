@@ -1,7 +1,7 @@
 import { bind } from "@/utils";
 import { motion } from "@/lib/framer-motion";
 import type { Variants } from "@/lib/framer-motion";
-import { IconMail, IconGitHub, IconLinkedin, IconSend, IconCheck } from "@/assets";
+import { IconMail, IconGitHub, IconLinkedin, IconSend, IconCheck, IconEraser } from "@/assets";
 import type { TranslationKey } from "@/i18n/types";
 import {
   ContactPageViewModel,
@@ -67,23 +67,38 @@ function InputField({
   label,
   placeholder,
   error,
+  value,
+  onClear,
   ...props
 }: {
   label: string;
   placeholder: string;
   error?: string;
+  value?: string;
+  onClear?: () => void;
 } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className="flex flex-col gap-2 flex-1">
       <label className="text-sm font-medium text-[#94A3B8]">{label}</label>
-      <input
-        type="text"
-        placeholder={placeholder}
-        className={`w-full px-4 py-3 bg-[#0A0F1C] border rounded-lg text-white placeholder:text-[#475569] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE] transition-colors ${
-          error ? "border-red-500" : "border-[#475569]"
-        }`}
-        {...props}
-      />
+      <div className="relative">
+        <input
+          type="text"
+          placeholder={placeholder}
+          className={`w-full px-4 py-3 pr-9 bg-[#0A0F1C] border rounded-lg text-white placeholder:text-[#475569] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE] transition-colors ${
+            error ? "border-red-500" : "border-[#475569]"
+          }`}
+          {...props}
+        />
+        {value && onClear && (
+          <button
+            type="button"
+            onClick={onClear}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#94A3B8] hover:text-white transition-colors"
+          >
+            <img src={IconEraser} alt="Clear" className="w-3.5 h-3.5" />
+          </button>
+        )}
+      </div>
       {error && <span className="text-xs text-red-500">{error}</span>}
     </div>
   );
@@ -126,8 +141,14 @@ function ContactPageViewController({
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors },
   } = form;
+
+  const nameValue = watch("name");
+  const emailValue = watch("email");
+  const subjectValue = watch("subject");
 
   return (
     <section className="flex-1 flex flex-col px-4 md:px-8 lg:px-[120px] py-6 md:py-10 lg:py-12">
@@ -188,6 +209,8 @@ function ContactPageViewController({
                 <InputField
                   label={t("contact.form.name")}
                   placeholder={t("contact.form.namePlaceholder")}
+                  value={nameValue}
+                  onClear={() => setValue("name", "", { shouldValidate: true })}
                   error={errors.name?.message ? String(t(errors.name.message as TranslationKey)) : undefined}
                   {...register("name")}
                 />
@@ -195,6 +218,8 @@ function ContactPageViewController({
                   label={t("contact.form.email")}
                   placeholder={t("contact.form.emailPlaceholder")}
                   type="email"
+                  value={emailValue}
+                  onClear={() => setValue("email", "", { shouldValidate: true })}
                   error={errors.email?.message ? String(t(errors.email.message as TranslationKey)) : undefined}
                   {...register("email")}
                 />
@@ -204,6 +229,8 @@ function ContactPageViewController({
               <InputField
                 label={t("contact.form.subject")}
                 placeholder={t("contact.form.subjectPlaceholder")}
+                value={subjectValue}
+                onClear={() => setValue("subject", "", { shouldValidate: true })}
                 error={errors.subject?.message ? String(t(errors.subject.message as TranslationKey)) : undefined}
                 {...register("subject")}
               />
