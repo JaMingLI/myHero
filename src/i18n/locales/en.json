@@ -8,7 +8,9 @@
     "edit": "Edit",
     "create": "Create",
     "search": "Search",
-    "noResults": "No results found"
+    "noResults": "No results found",
+    "theme": "Theme",
+    "menu": "Menu"
   },
   "auth": {
     "login": "Login",
@@ -18,8 +20,24 @@
   },
   "navigation": {
     "home": "Home",
-    "dashboard": "Dashboard",
-    "settings": "Settings",
-    "profile": "Profile"
+    "projects": "Projects",
+    "skills": "Skills",
+    "activity": "Activity",
+    "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "© 2025 Alen. All rights reserved."
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "descriptionMobile": "Crafting pixel-perfect mobile experiences with React Native, TypeScript & modern web technologies.",
+    "descriptionDesktop": "Passionate about building high-quality mobile and web experiences. Specializing in React Native, modern frontend architectures, and AI-powered tooling.",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me"
+  },
+  "badges": {
+    "mobile": "Mobile",
+    "frontend": "Frontend",
+    "aiTools": "AI Tools"
   }
 }

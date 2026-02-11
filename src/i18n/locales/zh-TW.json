@@ -8,7 +8,9 @@
     "edit": "編輯",
     "create": "新增",
     "search": "搜尋",
-    "noResults": "查無結果"
+    "noResults": "查無結果",
+    "theme": "主題",
+    "menu": "選單"
   },
   "auth": {
     "login": "登入",
@@ -18,8 +20,24 @@
   },
   "navigation": {
     "home": "首頁",
-    "dashboard": "儀表板",
-    "settings": "設定",
-    "profile": "個人資料"
+    "projects": "專案作品",
+    "skills": "技能",
+    "activity": "動態",
+    "contact": "聯絡我"
+  },
+  "footer": {
+    "copyright": "© 2025 Alen. 保留所有權利。"
+  },
+  "hero": {
+    "greeting": "嗨，我是",
+    "descriptionMobile": "使用 React Native、TypeScript 和現代網頁技術，打造精緻的行動裝置體驗。",
+    "descriptionDesktop": "熱衷於打造高品質的行動與網頁體驗。專精於 React Native、現代前端架構，以及 AI 驅動的開發工具。",
+    "viewProjects": "查看專案",
+    "contactMe": "聯絡我"
+  },
+  "badges": {
+    "mobile": "行動開發",
+    "frontend": "前端開發",
+    "aiTools": "AI 工具"
   }
 }

@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "@/pages";
+import { MainLayout } from "@/layouts";
 import { PATHS } from "./paths";
 
 function LoadingFallback() {
@@ -26,10 +27,12 @@ function NotFound() {
 export function AppRoutes() {
   return (
     <Suspense fallback={<LoadingFallback />}>
-      <Routes>
-        <Route path={PATHS.HOME} element={<HomePage />} />
-        <Route path={PATHS.NOT_FOUND} element={<NotFound />} />
-      </Routes>
+      <MainLayout>
+        <Routes>
+          <Route path={PATHS.HOME} element={<HomePage />} />
+          <Route path={PATHS.NOT_FOUND} element={<NotFound />} />
+        </Routes>
+      </MainLayout>
     </Suspense>
   );
 }
