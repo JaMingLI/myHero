@@ -138,5 +138,10 @@
       "success": "Message sent successfully!",
       "error": "Failed to send message. Please try again."
     }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been removed.",
+    "backHome": "Back to Home"
   }
 }
