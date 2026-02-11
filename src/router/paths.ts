@@ -4,8 +4,10 @@
  */
 export const PATHS = {
   HOME: "/",
-  DASHBOARD: "/dashboard",
-  LOGIN: "/login",
+  PROJECTS: "/projects",
+  SKILLS: "/skills",
+  ACTIVITY: "/activity",
+  CONTACT: "/contact",
   NOT_FOUND: "*",
 } as const;
 

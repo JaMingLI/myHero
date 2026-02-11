@@ -10,7 +10,8 @@
     "search": "Search",
     "noResults": "No results found",
     "theme": "Theme",
-    "menu": "Menu"
+    "menu": "Menu",
+    "all": "All"
   },
   "auth": {
     "login": "Login",
@@ -39,5 +40,53 @@
     "mobile": "Mobile",
     "frontend": "Frontend",
     "aiTools": "AI Tools"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A showcase of my recent work and side projects.",
+    "modal": {
+      "viewGithub": "View on GitHub",
+      "liveDemo": "Live Demo"
+    },
+    "filters": {
+      "all": "All",
+      "reactNative": "React Native",
+      "react": "React",
+      "ai": "AI",
+      "typescript": "TypeScript",
+      "sideProject": "Side Project"
+    },
+    "cards": {
+      "fintrack": {
+        "title": "FinTrack Mobile",
+        "description": "A cross-platform personal finance tracker built with React Native and TypeScript.",
+        "fullDescription": "A comprehensive cross-platform personal finance tracker built with React Native and TypeScript. Features include expense categorization, budget tracking, recurring transactions, multi-currency support, and interactive charts for visualizing spending patterns. Integrated with Firebase for real-time sync across devices."
+      },
+      "aiChat": {
+        "title": "AI Chat Assistant",
+        "description": "An intelligent chatbot interface powered by LLM APIs with streaming responses.",
+        "fullDescription": "An intelligent chatbot interface powered by large language model APIs with real-time streaming responses. Built with React and TypeScript, featuring a clean conversation UI, markdown rendering, code syntax highlighting, and persistent chat history. Supports multiple AI providers and customizable system prompts."
+      },
+      "devboard": {
+        "title": "DevBoard Dashboard",
+        "description": "A developer productivity dashboard with GitHub integrations and type-safe APIs.",
+        "fullDescription": "A developer productivity dashboard featuring GitHub activity integration, project management tools, and type-safe API interactions. Built with React and TypeScript, it provides real-time notifications, code review tracking, and customizable widgets for monitoring development workflows."
+      },
+      "workout": {
+        "title": "Workout Tracker",
+        "description": "A mobile app for tracking fitness routines with personalized progress charts.",
+        "fullDescription": "A mobile fitness application for tracking workout routines and monitoring progress. Features include customizable exercise plans, rep and set tracking, rest timers, progress charts with historical data, and workout reminders. Built with React Native for a smooth cross-platform experience."
+      },
+      "codeSnippet": {
+        "title": "Code Snippet Tool",
+        "description": "A web-based tool for storing, organizing, and sharing code snippets with syntax highlighting.",
+        "fullDescription": "A web-based tool for developers to store, organize, and share code snippets. Features syntax highlighting for 50+ languages, folder organization, tagging system, public/private sharing options, and a powerful search functionality. Built with React and includes a browser extension for quick saving."
+      },
+      "recipeFinder": {
+        "title": "Recipe Finder",
+        "description": "An intuitive recipe recommendation app with ingredient scanning via camera.",
+        "fullDescription": "An intuitive recipe discovery app that uses AI-powered ingredient recognition via camera scanning. Users can photograph ingredients they have on hand and receive personalized recipe recommendations. Features include dietary preference filters, nutritional information, step-by-step cooking instructions, and a favorites collection."
+      }
+    }
   }
 }

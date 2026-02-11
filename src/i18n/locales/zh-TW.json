@@ -10,7 +10,8 @@
     "search": "搜尋",
     "noResults": "查無結果",
     "theme": "主題",
-    "menu": "選單"
+    "menu": "選單",
+    "all": "全部"
   },
   "auth": {
     "login": "登入",
@@ -39,5 +40,53 @@
     "mobile": "行動開發",
     "frontend": "前端開發",
     "aiTools": "AI 工具"
+  },
+  "projects": {
+    "title": "專案作品",
+    "subtitle": "展示我近期的工作成果與個人專案。",
+    "modal": {
+      "viewGithub": "在 GitHub 查看",
+      "liveDemo": "線上展示"
+    },
+    "filters": {
+      "all": "全部",
+      "reactNative": "React Native",
+      "react": "React",
+      "ai": "AI",
+      "typescript": "TypeScript",
+      "sideProject": "個人專案"
+    },
+    "cards": {
+      "fintrack": {
+        "title": "FinTrack 行動應用",
+        "description": "使用 React Native 和 TypeScript 打造的跨平台個人財務追蹤應用。",
+        "fullDescription": "一款全方位的跨平台個人財務追蹤應用，使用 React Native 和 TypeScript 開發。功能包含支出分類、預算追蹤、定期交易、多幣別支援，以及視覺化消費模式的互動圖表。整合 Firebase 實現跨裝置即時同步。"
+      },
+      "aiChat": {
+        "title": "AI 聊天助理",
+        "description": "由 LLM API 驅動的智慧聊天機器人介面，支援串流回應。",
+        "fullDescription": "由大型語言模型 API 驅動的智慧聊天機器人介面，支援即時串流回應。使用 React 和 TypeScript 開發，具備簡潔的對話介面、Markdown 渲染、程式碼語法高亮，以及對話紀錄保存功能。支援多個 AI 服務供應商和自訂系統提示詞。"
+      },
+      "devboard": {
+        "title": "DevBoard 儀表板",
+        "description": "整合 GitHub 與型別安全 API 的開發者生產力儀表板。",
+        "fullDescription": "開發者生產力儀表板，整合 GitHub 活動追蹤、專案管理工具，以及型別安全的 API 互動。使用 React 和 TypeScript 開發，提供即時通知、程式碼審查追蹤，以及可自訂的小工具，用於監控開發工作流程。"
+      },
+      "workout": {
+        "title": "健身追蹤器",
+        "description": "追蹤健身計畫的行動應用，提供個人化進度圖表。",
+        "fullDescription": "一款用於追蹤健身計畫和監控進度的行動應用程式。功能包含可自訂運動計畫、組數與次數追蹤、休息計時器、歷史數據進度圖表，以及運動提醒。使用 React Native 開發，提供流暢的跨平台體驗。"
+      },
+      "codeSnippet": {
+        "title": "程式碼片段工具",
+        "description": "網頁版程式碼片段儲存、整理與分享工具，支援語法高亮。",
+        "fullDescription": "為開發者設計的網頁工具，用於儲存、整理和分享程式碼片段。支援 50+ 種程式語言的語法高亮、資料夾整理、標籤系統、公開/私密分享選項，以及強大的搜尋功能。使用 React 開發，並附帶瀏覽器擴充功能，方便快速儲存。"
+      },
+      "recipeFinder": {
+        "title": "食譜探索",
+        "description": "直覺式食譜推薦應用，支援相機掃描食材功能。",
+        "fullDescription": "一款直覺式的食譜探索應用，透過 AI 驅動的相機掃描功能識別食材。使用者可以拍攝手邊的食材照片，獲得個人化的食譜推薦。功能包含飲食偏好篩選、營養資訊、逐步烹飪說明，以及收藏夾功能。"
+      }
+    }
   }
 }
