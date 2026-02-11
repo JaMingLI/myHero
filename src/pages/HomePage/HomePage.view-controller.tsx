@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { bind } from "@/utils";
 import { motion } from "@/lib/framer-motion";
 import {
@@ -11,6 +12,7 @@ import {
   IconMail,
 } from "@/assets";
 import { WorldAirportsVoronoi } from "@/components";
+import { PATHS } from "@/router/paths";
 import type { Variants } from "@/lib/framer-motion";
 
 // Animation variants for staggered entry
@@ -132,37 +134,47 @@ function HomePageViewController({
             className="flex flex-col md:flex-row items-center gap-3 md:gap-4 w-full md:w-auto"
             variants={itemVariants}
           >
-            <motion.button
-              className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] bg-[var(--color-accent)] rounded-lg font-primary text-base md:text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[#1ab8d4] transition-colors w-full md:w-auto lg:shadow-[0_2px_20px_rgba(34,211,238,0.4)] btn-primary-glow"
+            <motion.div
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
+              className="w-full md:w-auto"
             >
-              <img
-                src={IconFolder}
-                alt=""
-                className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
-              />
-              {t("hero.viewProjects")}
-              <img
-                src={IconArrowRight}
-                alt=""
-                className="hidden lg:block w-4 h-4"
-              />
-            </motion.button>
-            <motion.button
-              className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] rounded-lg font-primary text-base md:text-sm font-semibold md:font-medium text-[var(--color-accent)] md:text-[var(--color-text-secondary)] border border-[var(--color-accent)] md:border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors w-full md:w-auto"
+              <Link
+                to={PATHS.PROJECTS}
+                className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] bg-[var(--color-accent)] rounded-lg font-primary text-base md:text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[#1ab8d4] transition-colors w-full md:w-auto lg:shadow-[0_2px_20px_rgba(34,211,238,0.4)] btn-primary-glow"
+              >
+                <img
+                  src={IconFolder}
+                  alt=""
+                  className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
+                />
+                {t("hero.viewProjects")}
+                <img
+                  src={IconArrowRight}
+                  alt=""
+                  className="hidden lg:block w-4 h-4"
+                />
+              </Link>
+            </motion.div>
+            <motion.div
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
+              className="w-full md:w-auto"
             >
-              <img
-                src={IconMail}
-                alt=""
-                className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
-              />
-              {t("hero.contactMe")}
-            </motion.button>
+              <Link
+                to={PATHS.CONTACT}
+                className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] rounded-lg font-primary text-base md:text-sm font-semibold md:font-medium text-[var(--color-accent)] md:text-[var(--color-text-secondary)] border border-[var(--color-accent)] md:border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors w-full md:w-auto"
+              >
+                <img
+                  src={IconMail}
+                  alt=""
+                  className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
+                />
+                {t("hero.contactMe")}
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
