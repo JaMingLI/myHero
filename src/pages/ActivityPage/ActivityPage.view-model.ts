@@ -1,11 +1,12 @@
 import { useQuery, QUERY_KEYS } from "@/lib/react-query";
 import { useTranslation } from "@/lib/i18n";
 import { GitHubService } from "@/domain";
+import { ENV } from "@/app/config";
 import type { RepoDto, ActivityDto } from "@/domain";
 import type { TranslationKey } from "@/i18n/types";
 
-// Default GitHub username - can be made configurable
-const GITHUB_USERNAME = "JaMingLI";
+// GitHub username from environment variable
+const GITHUB_USERNAME = ENV.GITHUB_USERNAME;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ActivityPageProps {
