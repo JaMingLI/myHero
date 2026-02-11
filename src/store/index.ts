@@ -1,9 +1,10 @@
 import { create } from "zustand";
 import { createUiSlice, type UiSlice } from "./slices/ui.slice";
 import { createAuthSlice, type AuthSlice } from "./slices/auth.slice";
+import { createSkillsSlice, type SkillsSlice } from "./slices/skills.slice";
 
 // Combined store type
-type AppStore = UiSlice & AuthSlice;
+type AppStore = UiSlice & AuthSlice & SkillsSlice;
 
 /**
  * Root Store
@@ -12,4 +13,5 @@ type AppStore = UiSlice & AuthSlice;
 export const useAppStore = create<AppStore>()((...a) => ({
   ...createUiSlice(...a),
   ...createAuthSlice(...a),
+  ...createSkillsSlice(...a),
 }));

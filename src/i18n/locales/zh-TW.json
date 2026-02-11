@@ -143,5 +143,19 @@
     "title": "找不到頁面",
     "description": "您尋找的頁面不存在或已被移除。",
     "backHome": "返回首頁"
+  },
+  "skills": {
+    "title": "技能等級",
+    "hint": "拖曳調整技能等級",
+    "hintMobile": "拖曳調整",
+    "reset": "重設所有技能",
+    "items": {
+      "react": "React",
+      "reactNative": "React Native",
+      "typescript": "TypeScript",
+      "css": "CSS",
+      "git": "Git/CI/CD",
+      "ai": "AI 工具"
+    }
   }
 }
