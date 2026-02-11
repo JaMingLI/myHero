@@ -88,5 +88,23 @@
         "fullDescription": "An intuitive recipe discovery app that uses AI-powered ingredient recognition via camera scanning. Users can photograph ingredients they have on hand and receive personalized recipe recommendations. Features include dietary preference filters, nutritional information, step-by-step cooking instructions, and a favorites collection."
       }
     }
+  },
+  "activity": {
+    "title": "GitHub Activity",
+    "subtitle": "My latest repositories and public activity from GitHub.",
+    "sections": {
+      "repositories": "RECENT REPOSITORIES",
+      "timeline": "RECENT ACTIVITY"
+    },
+    "eventTypes": {
+      "push": "Push",
+      "pr": "PR",
+      "create": "Create",
+      "issue": "Issue",
+      "other": "Event"
+    },
+    "loading": "Loading...",
+    "noRepos": "No repositories found",
+    "noActivity": "No recent activity"
   }
 }
