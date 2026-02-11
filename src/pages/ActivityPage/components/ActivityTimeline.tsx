@@ -80,46 +80,48 @@ export function ActivityTimeline({
 
   return (
     <motion.div
-      className="bg-[#1E293B] rounded-lg divide-y divide-[#0F172A]"
+      className="bg-[#1E293B] rounded-lg max-h-[500px] overflow-y-auto scrollbar-thin"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      {activities.map((activity) => (
-        <motion.div
-          key={activity.id}
-          className="flex items-start gap-3 p-4 md:p-5"
-          variants={itemVariants}
-        >
-          {/* Timeline dot */}
-          <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mt-1.5 flex-shrink-0" />
+      <div className="divide-y divide-[#0F172A]">
+        {activities.map((activity) => (
+          <motion.div
+            key={activity.id}
+            className="flex items-start gap-3 p-4 md:p-5"
+            variants={itemVariants}
+          >
+            {/* Timeline dot */}
+            <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] mt-1.5 flex-shrink-0" />
 
-          {/* Content */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex-1 min-w-0">
-                {/* Event title */}
-                <p className="font-primary text-[13px] md:text-sm text-[var(--color-text-primary)] leading-[1.4] truncate">
-                  {activity.title}
-                </p>
-                {/* Repo name and time */}
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="font-mono text-[11px] md:text-xs text-[#64748B]">
-                    {activity.repoName}
-                  </span>
-                  <span className="text-[#475569]">·</span>
-                  <span className="text-[11px] md:text-xs text-[#64748B]">
-                    {formatActivityTime(activity.createdAt)}
-                  </span>
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex-1 min-w-0">
+                  {/* Event title */}
+                  <p className="font-primary text-[13px] md:text-sm text-[var(--color-text-primary)] leading-[1.4] truncate">
+                    {activity.title}
+                  </p>
+                  {/* Repo name and time */}
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="font-mono text-[11px] md:text-xs text-[#64748B]">
+                      {activity.repoName}
+                    </span>
+                    <span className="text-[#475569]">·</span>
+                    <span className="text-[11px] md:text-xs text-[#64748B]">
+                      {formatActivityTime(activity.createdAt)}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Event type badge */}
-              <EventBadge type={activity.type} t={t} />
+                {/* Event type badge */}
+                <EventBadge type={activity.type} t={t} />
+              </div>
             </div>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        ))}
+      </div>
     </motion.div>
   );
 }
