@@ -1,5 +1,6 @@
 import { useMemo, useRef } from "react";
 import { useD3Canvas, useContainerSize } from "@/hooks";
+import { cn } from "@/utils";
 import type { GlobeTheme, AirportData } from "@/lib/d3";
 import airportsData from "@/assets/data/airports.json";
 
@@ -58,7 +59,7 @@ export function WorldAirportsVoronoi({
   });
 
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
+    <div ref={containerRef} className={cn("relative", className)}>
       {/* Glow effect container */}
       <div
         className="absolute globe-glow rounded-full"
@@ -78,9 +79,11 @@ export function WorldAirportsVoronoi({
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
-        className={`relative z-10 transition-opacity duration-300 ${
-          isReady ? "opacity-100" : "opacity-0"
-        } ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+        className={cn(
+          "relative z-10 transition-opacity duration-300",
+          isReady ? "opacity-100" : "opacity-0",
+          isDragging ? "cursor-grabbing" : "cursor-grab"
+        )}
         style={{
           width: size,
           height: size,

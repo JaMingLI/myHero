@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { bind } from "@/utils";
+import { bind, cn } from "@/utils";
 import { motion } from "@/lib/framer-motion";
 import {
   HomePageViewModel,
@@ -110,12 +110,18 @@ function HomePageViewController({
               {roleText}
             </span>
             <span
-              className={`font-secondary text-sm md:text-2xl lg:text-[28px] font-light text-[var(--color-accent)] md:hidden lg:inline typing-cursor ${isTypingComplete ? "typing-cursor-blink" : ""}`}
+              className={cn(
+              "font-secondary text-sm md:text-2xl lg:text-[28px] font-light text-[var(--color-accent)] md:hidden lg:inline typing-cursor",
+              isTypingComplete && "typing-cursor-blink"
+            )}
             >
               |
             </span>
             <div
-              className={`hidden md:block lg:hidden w-[2px] h-[18px] bg-[var(--color-accent)] ${isTypingComplete ? "typing-cursor-blink" : ""}`}
+              className={cn(
+              "hidden md:block lg:hidden w-[2px] h-[18px] bg-[var(--color-accent)]",
+              isTypingComplete && "typing-cursor-blink"
+            )}
             ></div>
           </motion.div>
 
