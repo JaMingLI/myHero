@@ -80,8 +80,16 @@ function ProjectCard({
 
   return (
     <motion.div
-      className="flex flex-col bg-[var(--color-bg-secondary)] rounded-xl overflow-hidden cursor-pointer hover:ring-2 hover:ring-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-shadow"
+      className={cn(
+        "flex flex-col bg-[var(--color-bg-secondary)] rounded-xl overflow-hidden cursor-pointer",
+        "hover:ring-2 hover:ring-[var(--color-accent)]",
+        "hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)]",
+        "focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]",
+        "transition-shadow duration-300 ease-out"
+      )}
       variants={itemVariants}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role="button"
