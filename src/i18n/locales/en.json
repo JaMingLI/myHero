@@ -11,6 +11,8 @@
     "noResults": "No results found",
     "theme": "Theme",
     "menu": "Menu",
+    "close": "Close",
+    "darkMode": "Dark Mode",
     "all": "All"
   },
   "auth": {

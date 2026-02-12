@@ -14,13 +14,16 @@ import {
   IconFolder,
   IconActivity,
 } from "@/assets";
-import { LanguageSwitcher } from "@/components";
+import { LanguageSwitcher, MobileMenu } from "@/components";
 
 function MainLayoutViewController({
   children,
   t,
   currentPath,
   paths,
+  isMenuOpen,
+  openMenu,
+  closeMenu,
 }: IMainLayoutViewModel) {
   // Helper to determine if a path is active
   const isActive = (path: string) => currentPath === path;
@@ -88,10 +91,21 @@ function MainLayoutViewController({
         </nav>
 
         {/* Mobile Hamburger - md: 以下顯示 */}
-        <button className="flex md:hidden items-center justify-center w-10 h-10 rounded-md">
-          <img src={IconMenu} alt={t("common.menu")} className="w-6 h-6" />
+        <button
+          onClick={openMenu}
+          className="flex md:hidden items-center justify-center w-10 h-10 rounded-md"
+          aria-label={t("common.menu")}
+        >
+          <img src={IconMenu} alt="" className="w-6 h-6" />
         </button>
       </header>
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={closeMenu}
+        currentPath={currentPath}
+      />
 
       {/* Page content */}
       <main className="flex-1 overflow-auto">{children}</main>
