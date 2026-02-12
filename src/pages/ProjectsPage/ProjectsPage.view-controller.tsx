@@ -91,13 +91,12 @@ function ProjectCard({
       aria-label={t(project.titleKey)}
     >
       {/* Card Image */}
-      <div className="w-full h-40 md:h-44 lg:h-[180px] bg-[var(--color-bg-tertiary)] flex items-center justify-center">
-        {/* Placeholder for project image */}
-        <div className="w-full h-full bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg-tertiary)] flex items-center justify-center">
-          <span className="text-[var(--color-text-muted)] text-sm">
-            {t(project.titleKey)}
-          </span>
-        </div>
+      <div className="w-full h-40 md:h-44 lg:h-[180px] bg-[var(--color-bg-tertiary)] overflow-hidden">
+        <img
+          src={project.image}
+          alt={t(project.titleKey)}
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Card Body */}

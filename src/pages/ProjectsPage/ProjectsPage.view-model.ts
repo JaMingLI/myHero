@@ -1,6 +1,14 @@
 import { useState, useMemo, useCallback } from "react";
 import { useTranslation } from "@/lib/i18n";
 import type { TranslationKey } from "@/i18n/types";
+import {
+  ImgFinTrack,
+  ImgAiChat,
+  ImgDevBoard,
+  ImgWorkout,
+  ImgCodeSnippet,
+  ImgRecipeFinder,
+} from "@/assets";
 
 // Filter options for project categories
 export type FilterType = "all" | "reactNative" | "react" | "ai" | "typescript" | "sideProject";
@@ -31,7 +39,7 @@ const PROJECTS: Project[] = [
     titleKey: "projects.cards.fintrack.title",
     descriptionKey: "projects.cards.fintrack.description",
     fullDescriptionKey: "projects.cards.fintrack.fullDescription",
-    image: "/images/project-fintrack.png",
+    image: ImgFinTrack,
     tags: ["React Native", "TypeScript", "Firebase"],
     filters: ["reactNative", "typescript"],
     githubUrl: "https://github.com/example/fintrack",
@@ -42,7 +50,7 @@ const PROJECTS: Project[] = [
     titleKey: "projects.cards.aiChat.title",
     descriptionKey: "projects.cards.aiChat.description",
     fullDescriptionKey: "projects.cards.aiChat.fullDescription",
-    image: "/images/project-aichat.png",
+    image: ImgAiChat,
     tags: ["React", "AI", "TypeScript"],
     filters: ["react", "ai", "typescript"],
     githubUrl: "https://github.com/example/ai-chat",
@@ -53,7 +61,7 @@ const PROJECTS: Project[] = [
     titleKey: "projects.cards.devboard.title",
     descriptionKey: "projects.cards.devboard.description",
     fullDescriptionKey: "projects.cards.devboard.fullDescription",
-    image: "/images/project-devboard.png",
+    image: ImgDevBoard,
     tags: ["React", "TypeScript"],
     filters: ["react", "typescript"],
     githubUrl: "https://github.com/example/devboard",
@@ -63,7 +71,7 @@ const PROJECTS: Project[] = [
     titleKey: "projects.cards.workout.title",
     descriptionKey: "projects.cards.workout.description",
     fullDescriptionKey: "projects.cards.workout.fullDescription",
-    image: "/images/project-workout.png",
+    image: ImgWorkout,
     tags: ["React Native", "Side Project"],
     filters: ["reactNative", "sideProject"],
     githubUrl: "https://github.com/example/workout-tracker",
@@ -73,7 +81,7 @@ const PROJECTS: Project[] = [
     titleKey: "projects.cards.codeSnippet.title",
     descriptionKey: "projects.cards.codeSnippet.description",
     fullDescriptionKey: "projects.cards.codeSnippet.fullDescription",
-    image: "/images/project-codesnippet.png",
+    image: ImgCodeSnippet,
     tags: ["React", "Side Project"],
     filters: ["react", "sideProject"],
     githubUrl: "https://github.com/example/code-snippet",
@@ -84,7 +92,7 @@ const PROJECTS: Project[] = [
     titleKey: "projects.cards.recipeFinder.title",
     descriptionKey: "projects.cards.recipeFinder.description",
     fullDescriptionKey: "projects.cards.recipeFinder.fullDescription",
-    image: "/images/project-recipe.png",
+    image: ImgRecipeFinder,
     tags: ["React Native", "AI"],
     filters: ["reactNative", "ai"],
     githubUrl: "https://github.com/example/recipe-finder",
