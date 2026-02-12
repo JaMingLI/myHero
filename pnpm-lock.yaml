@@ -121,7 +121,7 @@ importers:
         specifier: 8.54.0
         version: 8.54.0(eslint@9.39.2(jiti@1.21.7))(typescript@5.6.3)
       vercel:
-        specifier: ^50.15.1
+        specifier: 50.15.1
         version: 50.15.1(rollup@4.57.1)(typescript@5.6.3)
       vite:
         specifier: 6.4.1
