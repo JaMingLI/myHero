@@ -1,4 +1,4 @@
-import { bind } from "@/utils";
+import { bind, cn } from "@/utils";
 import { motion } from "@/lib/framer-motion";
 import { ProjectModal } from "@/components";
 import {
@@ -49,14 +49,12 @@ function FilterChip({
   return (
     <button
       onClick={onClick}
-      className={`
-        px-4 py-1.5 rounded-2xl font-primary text-[13px] font-medium transition-colors
-        ${
-          isActive
-            ? "bg-[var(--color-accent)] text-[var(--color-bg-primary)] font-semibold"
-            : "bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-        }
-      `}
+      className={cn(
+        "px-4 py-1.5 rounded-2xl font-primary text-[13px] font-medium transition-colors",
+        isActive
+          ? "bg-[var(--color-accent)] text-[var(--color-bg-primary)] font-semibold"
+          : "bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+      )}
     >
       {t(filter.labelKey)}
     </button>
