@@ -11,7 +11,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "switch": "tsx scripts/switch-env.ts"
+    "switch": "tsx scripts/switch-env.ts",
+    "setup": "tsx scripts/setup.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "3.10.0",
