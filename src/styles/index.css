@@ -131,6 +131,24 @@
   will-change: opacity, transform;
 }
 
+/* Globe glow animation */
+@keyframes globe-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.02);
+  }
+}
+
+.globe-glow {
+  animation: globe-glow 3s ease-in-out infinite;
+  will-change: opacity, transform;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, transparent 70%);
+}
+
 /* Typing cursor animation */
 .typing-cursor-blink {
   animation: cursor-blink 0.8s ease-in-out infinite;
