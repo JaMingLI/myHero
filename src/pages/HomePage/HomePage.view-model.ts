@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import { useTypingEffect, useMediaQuery } from "@/hooks";
 import { useTranslation } from "@/lib/i18n";
 
@@ -13,6 +14,13 @@ export const HomePageViewModel = (_props: HomePageProps) => {
   // Check if viewport is desktop (≥1024px)
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
+  // Control globe animation timing - wait for Framer Motion entry animation to complete
+  const [isGlobeReady, setIsGlobeReady] = useState(false);
+
+  const handleGlobeAnimationComplete = useCallback(() => {
+    setIsGlobeReady(true);
+  }, []);
+
   // Typing effect for the role text (delayed to sync with staggered animation)
   const { displayText: roleText, isComplete: isTypingComplete } = useTypingEffect(
     "React Native Developer",
@@ -23,6 +31,8 @@ export const HomePageViewModel = (_props: HomePageProps) => {
     roleText,
     isTypingComplete,
     isDesktop,
+    isGlobeReady,
+    handleGlobeAnimationComplete,
     t,
   };
 };

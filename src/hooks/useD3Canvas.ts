@@ -82,26 +82,34 @@ export function useD3Canvas({
 
   // Initialize renderer
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas || airports.length === 0) return;
+    if (airports.length === 0) return;
 
-    try {
-      rendererRef.current = createGlobeRenderer(canvas, {
-        width,
-        height,
-        airports,
-        theme,
-        initialRotation,
-      });
+    // Use requestAnimationFrame to defer initialization by one frame
+    // This allows the canvas to be properly mounted and animations to complete
+    const frameId = requestAnimationFrame(() => {
+      const canvas = canvasRef.current; // Get latest ref inside callback to avoid stale closure
+      if (!canvas) return;
 
-      // Initial render
-      rendererRef.current.render(rotationRef.current);
-      setIsReady(true);
-    } catch (error) {
-      console.error("Failed to initialize globe renderer:", error);
-    }
+      try {
+        rendererRef.current = createGlobeRenderer(canvas, {
+          width,
+          height,
+          airports,
+          theme,
+          initialRotation,
+        });
+
+        // Initial render
+        rendererRef.current.render(rotationRef.current);
+        setIsReady(true);
+      } catch (error) {
+        console.error("Failed to initialize globe renderer:", error);
+      }
+    });
 
     return () => {
+      cancelAnimationFrame(frameId);
+
       if (rendererRef.current) {
         rendererRef.current.destroy();
         rendererRef.current = null;

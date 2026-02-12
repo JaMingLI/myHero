@@ -45,24 +45,27 @@ function HomePageViewController({
   roleText,
   isTypingComplete,
   isDesktop,
+  isGlobeReady,
+  handleGlobeAnimationComplete,
   t,
 }: IHomePageViewModel) {
   return (
-    <section className="flex-1 flex items-center justify-center px-4 md:px-12 lg:px-[120px] py-10 md:py-20">
+    <section className="relative flex-1 flex items-center justify-center px-4 md:px-12 lg:px-[120px] py-10 md:py-20">
       <motion.div
         className="flex flex-col lg:flex-row items-center lg:justify-between gap-6 md:gap-8 lg:gap-20 w-full max-w-[560px] lg:max-w-[1440px]"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Avatar Section - Mobile/Tablet: 先顯示, Desktop: 移到右邊 */}
+        {/* Avatar Section - Mobile/Tablet: 顯示 Avatar, Desktop: 空 placeholder 維持佈局 */}
         <motion.div
           className="flex flex-col items-center justify-center lg:order-2 lg:size-[clamp(400px,min(50vw,calc(100vh-200px)),900px)]"
           variants={itemVariants}
+          onAnimationComplete={handleGlobeAnimationComplete}
         >
-          {/* Desktop: World Airports Voronoi Globe */}
           {isDesktop ? (
-            <WorldAirportsVoronoi autoRotate className="w-full h-full" />
+            /* Desktop: 空 placeholder 維持佈局空間，Globe 在 motion.div 外部渲染 */
+            <div className="w-full h-full" />
           ) : (
             /* Mobile/Tablet: Avatar with Glow Effect */
             <div className="flex items-center justify-center w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-bg-primary)] avatar-glow">
@@ -178,6 +181,18 @@ function HomePageViewController({
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Globe 完全在 motion.div 外部 - 使用絕對定位覆蓋 placeholder */}
+      {/* 這樣可以完全避免 Framer Motion 追蹤 Globe，防止動畫與 Voronoi 計算競爭主線程 */}
+      {isDesktop && isGlobeReady && (
+        <div className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none px-[120px]">
+          <div className="flex w-full max-w-[1440px] justify-end">
+            <div className="size-[clamp(400px,min(50vw,calc(100vh-200px)),900px)] pointer-events-auto">
+              <WorldAirportsVoronoi autoRotate className="w-full h-full" />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

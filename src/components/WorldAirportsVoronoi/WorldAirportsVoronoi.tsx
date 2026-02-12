@@ -33,6 +33,12 @@ export function WorldAirportsVoronoi({
   // Use the smaller dimension to keep the globe circular
   const size = Math.min(width, height) || 280;
 
+  // Stabilize initialRotation reference to prevent useEffect re-runs
+  const initialRotation = useMemo<[number, number, number]>(
+    () => [0, -30, 0],
+    []
+  );
+
   const {
     canvasRef,
     isReady,
@@ -47,7 +53,7 @@ export function WorldAirportsVoronoi({
     autoRotate,
     theme,
     rotationSpeed: 0.008,
-    initialRotation: [0, -30, 0],
+    initialRotation,
     enableDrag,
   });
 
