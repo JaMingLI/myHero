@@ -1,4 +1,4 @@
-import { bind } from "@/utils";
+import { bind, cn } from "@/utils";
 import { motion, AnimatePresence } from "@/lib/framer-motion";
 import type { Variants } from "@/lib/framer-motion";
 import {
@@ -74,12 +74,10 @@ function MobileMenuViewController({
   const isActive = (path: string) => currentPath === path;
 
   const getNavItemClass = (path: string) =>
-    isActive(path)
-      ? "text-[var(--color-accent)]"
-      : "text-[var(--color-text-primary)]";
+    cn(isActive(path) ? "text-[var(--color-accent)]" : "text-[var(--color-text-primary)]");
 
   const getIconClass = (path: string) =>
-    isActive(path) ? "w-6 h-6" : "w-6 h-6 opacity-70";
+    cn("w-6 h-6", !isActive(path) && "opacity-70");
 
   return (
     <AnimatePresence>
@@ -133,7 +131,10 @@ function MobileMenuViewController({
                   <motion.li key={path} variants={itemVariants}>
                     <button
                       onClick={() => handleNavigation(path)}
-                      className={`flex items-center gap-4 w-full px-4 py-3 rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors ${getNavItemClass(path)}`}
+                      className={cn(
+                        "flex items-center gap-4 w-full px-4 py-3 rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors",
+                        getNavItemClass(path)
+                      )}
                     >
                       <img
                         src={icon}
