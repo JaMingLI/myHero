@@ -118,12 +118,12 @@ export function ProjectModal({ isOpen, project, onClose, t }: ProjectModalProps)
               </div>
 
               {/* Image */}
-              <div className="w-full h-[200px] bg-[var(--color-bg-tertiary)] flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg-tertiary)] flex items-center justify-center">
-                  <span className="text-[var(--color-text-muted)] text-sm">
-                    {t(project.titleKey)}
-                  </span>
-                </div>
+              <div className="w-full h-[200px] bg-[var(--color-bg-tertiary)] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={t(project.titleKey)}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Body */}
@@ -212,12 +212,12 @@ export function ProjectModal({ isOpen, project, onClose, t }: ProjectModalProps)
               </button>
 
               {/* Image */}
-              <div className="w-full h-[280px] bg-[var(--color-bg-tertiary)] flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg-tertiary)] flex items-center justify-center">
-                  <span className="text-[var(--color-text-muted)] text-lg">
-                    {t(project.titleKey)}
-                  </span>
-                </div>
+              <div className="w-full h-[280px] bg-[var(--color-bg-tertiary)] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={t(project.titleKey)}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Body */}

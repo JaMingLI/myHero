@@ -1,4 +1,4 @@
-import { bind } from "@/utils";
+import { bind, cn } from "@/utils";
 import { motion } from "@/lib/framer-motion";
 import { ProjectModal } from "@/components";
 import {
@@ -49,14 +49,12 @@ function FilterChip({
   return (
     <button
       onClick={onClick}
-      className={`
-        px-4 py-1.5 rounded-2xl font-primary text-[13px] font-medium transition-colors
-        ${
-          isActive
-            ? "bg-[var(--color-accent)] text-[var(--color-bg-primary)] font-semibold"
-            : "bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-        }
-      `}
+      className={cn(
+        "px-4 py-1.5 rounded-2xl font-primary text-[13px] font-medium transition-colors",
+        isActive
+          ? "bg-[var(--color-accent)] text-[var(--color-bg-primary)] font-semibold"
+          : "bg-[var(--color-bg-secondary)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+      )}
     >
       {t(filter.labelKey)}
     </button>
@@ -82,8 +80,16 @@ function ProjectCard({
 
   return (
     <motion.div
-      className="flex flex-col bg-[var(--color-bg-secondary)] rounded-xl overflow-hidden cursor-pointer hover:ring-2 hover:ring-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-shadow"
+      className={cn(
+        "flex flex-col bg-[var(--color-bg-secondary)] rounded-xl overflow-hidden cursor-pointer",
+        "hover:ring-2 hover:ring-[var(--color-accent)]",
+        "hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)]",
+        "focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]",
+        "transition-shadow duration-300 ease-out"
+      )}
       variants={itemVariants}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       onClick={onClick}
       onKeyDown={handleKeyDown}
       role="button"
@@ -91,13 +97,12 @@ function ProjectCard({
       aria-label={t(project.titleKey)}
     >
       {/* Card Image */}
-      <div className="w-full h-40 md:h-44 lg:h-[180px] bg-[var(--color-bg-tertiary)] flex items-center justify-center">
-        {/* Placeholder for project image */}
-        <div className="w-full h-full bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg-tertiary)] flex items-center justify-center">
-          <span className="text-[var(--color-text-muted)] text-sm">
-            {t(project.titleKey)}
-          </span>
-        </div>
+      <div className="w-full h-40 md:h-44 lg:h-[180px] bg-[var(--color-bg-tertiary)] overflow-hidden">
+        <img
+          src={project.image}
+          alt={t(project.titleKey)}
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Card Body */}
