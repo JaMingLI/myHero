@@ -12,7 +12,8 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "switch": "tsx scripts/switch-env.ts",
-    "setup": "tsx scripts/setup.ts"
+    "setup": "tsx scripts/setup.ts",
+    "release": "pnpm run switch prod && pnpm run build && vercel --prod"
   },
   "dependencies": {
     "@hookform/resolvers": "3.10.0",
@@ -54,6 +55,7 @@
     "tsx": "4.21.0",
     "typescript": "5.6.3",
     "typescript-eslint": "8.54.0",
+    "vercel": "50.15.1",
     "vite": "6.4.1",
     "vitest": "2.1.9"
   },
