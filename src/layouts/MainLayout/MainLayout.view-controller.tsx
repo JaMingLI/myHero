@@ -1,4 +1,4 @@
-import { bind } from "@/utils";
+import { bind, cn } from "@/utils";
 import { Link } from "react-router-dom";
 import {
   MainLayoutViewModel,
@@ -14,31 +14,40 @@ import {
   IconFolder,
   IconActivity,
 } from "@/assets";
-import { LanguageSwitcher } from "@/components";
+import { LanguageSwitcher, MobileMenu } from "@/components";
 
 function MainLayoutViewController({
   children,
   t,
   currentPath,
   paths,
+  isMenuOpen,
+  openMenu,
+  closeMenu,
 }: IMainLayoutViewModel) {
   // Helper to determine if a path is active
   const isActive = (path: string) => currentPath === path;
 
   // Navigation link styles
   const getNavLinkClass = (path: string) =>
-    isActive(path)
-      ? "font-primary text-sm font-medium text-[var(--color-accent)]"
-      : "font-primary text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors";
+    cn(
+      "font-primary text-sm",
+      isActive(path)
+        ? "font-medium text-[var(--color-accent)]"
+        : "text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+    );
 
   // Mobile tab styles
   const getMobileTabTextClass = (path: string) =>
-    isActive(path)
-      ? "font-primary text-[10px] font-semibold text-[var(--color-accent)]"
-      : "font-primary text-[10px] text-[var(--color-text-muted)]";
+    cn(
+      "font-primary text-[10px]",
+      isActive(path)
+        ? "font-semibold text-[var(--color-accent)]"
+        : "text-[var(--color-text-muted)]"
+    );
 
   const getMobileTabIconClass = (path: string) =>
-    isActive(path) ? "w-5 h-5" : "w-5 h-5 opacity-50";
+    cn("w-5 h-5", !isActive(path) && "opacity-50");
 
   return (
     <div className="flex flex-col h-full w-full bg-[var(--color-bg-primary)]">
@@ -88,10 +97,21 @@ function MainLayoutViewController({
         </nav>
 
         {/* Mobile Hamburger - md: 以下顯示 */}
-        <button className="flex md:hidden items-center justify-center w-10 h-10 rounded-md">
-          <img src={IconMenu} alt={t("common.menu")} className="w-6 h-6" />
+        <button
+          onClick={openMenu}
+          className="flex md:hidden items-center justify-center w-10 h-10 rounded-md"
+          aria-label={t("common.menu")}
+        >
+          <img src={IconMenu} alt="" className="w-6 h-6" />
         </button>
       </header>
+
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isMenuOpen}
+        onClose={closeMenu}
+        currentPath={currentPath}
+      />
 
       {/* Page content */}
       <main className="flex-1 overflow-auto">{children}</main>
