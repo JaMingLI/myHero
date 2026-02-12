@@ -20,7 +20,7 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-1 bg-[var(--color-bg-secondary)] rounded-md p-0.5">
+    <div className="inline-flex items-center gap-1 bg-[var(--color-bg-secondary)] rounded-md p-0.5">
       {SUPPORTED_LANGUAGES.map((language) => {
         const isActive = currentLanguage === language;
         return (
