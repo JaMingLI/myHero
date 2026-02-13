@@ -6,6 +6,7 @@ import {
 } from "./MainLayout.view-model";
 import {
   IconMoon,
+  IconSun,
   IconMenu,
   IconGitHub,
   IconLinkedin,
@@ -24,6 +25,8 @@ function MainLayoutViewController({
   isMenuOpen,
   openMenu,
   closeMenu,
+  isDark,
+  toggleTheme,
 }: IMainLayoutViewModel) {
   // Helper to determine if a path is active
   const isActive = (path: string) => currentPath === path;
@@ -87,9 +90,13 @@ function MainLayoutViewController({
           <LanguageSwitcher />
 
           {/* Theme Toggle */}
-          <button className="flex items-center justify-center w-9 h-9 bg-[var(--color-bg-secondary)] rounded-md hover:bg-[#2d3a52] transition-colors">
+          <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center w-9 h-9 bg-[var(--color-bg-secondary)] rounded-md hover:opacity-80 transition-opacity"
+            aria-label={t("common.theme")}
+          >
             <img
-              src={IconMoon}
+              src={isDark ? IconMoon : IconSun}
               alt={t("common.theme")}
               className="w-5 h-5 opacity-70"
             />

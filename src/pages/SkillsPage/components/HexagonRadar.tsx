@@ -92,7 +92,7 @@ export function HexagonRadar({ skills }: HexagonRadarProps) {
           key={`grid-${scale}`}
           d={getHexagonPath(center, center, maxRadius * scale)}
           fill="none"
-          stroke="#1E293B"
+          stroke="var(--color-border)"
           strokeWidth="1"
         />
       ))}
@@ -107,7 +107,7 @@ export function HexagonRadar({ skills }: HexagonRadarProps) {
             y1={center}
             x2={point.x}
             y2={point.y}
-            stroke="#1E293B"
+            stroke="var(--color-border)"
             strokeWidth="1"
           />
         );
@@ -116,9 +116,9 @@ export function HexagonRadar({ skills }: HexagonRadarProps) {
       {/* Skill area - filled polygon based on levels */}
       <path
         d={getSkillAreaPath(center, center, maxRadius, skills)}
-        fill="#22D3EE"
+        fill="var(--color-accent)"
         fillOpacity="0.125"
-        stroke="#22D3EE"
+        stroke="var(--color-accent)"
         strokeWidth="2"
       />
 
@@ -145,7 +145,7 @@ export function HexagonRadar({ skills }: HexagonRadarProps) {
               y={point.y}
               textAnchor={textAnchor}
               dy={dy}
-              className="fill-white text-sm font-medium"
+              className="fill-[var(--color-text-primary)] text-sm font-medium"
               style={{ fontSize: "14px" }}
             >
               {label}
@@ -155,7 +155,7 @@ export function HexagonRadar({ skills }: HexagonRadarProps) {
               y={point.y}
               textAnchor={textAnchor}
               dy={index === 0 ? "1em" : index === 3 ? "2.7em" : "1.5em"}
-              className="fill-[#22D3EE] text-xs font-semibold"
+              className="fill-[var(--color-accent)] text-xs font-semibold"
               style={{ fontSize: "12px" }}
             >
               {level}
