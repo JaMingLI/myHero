@@ -16,6 +16,7 @@ import {
   IconActivity,
 } from "@/assets";
 import { LanguageSwitcher, MobileMenu } from "@/components";
+import { APP_VERSION } from "@/app/config";
 
 function MainLayoutViewController({
   children,
@@ -132,6 +133,7 @@ function MainLayoutViewController({
       <footer className="hidden md:flex items-center justify-between h-16 px-8 md:px-12 lg:px-[120px] border-t border-[var(--color-border)]">
         <span className="font-primary text-[13px] text-[var(--color-text-muted)]">
           {t("footer.copyright")}
+          <span className="ml-2 text-[11px] opacity-60">v{APP_VERSION}</span>
         </span>
 
         {/* Social Links */}

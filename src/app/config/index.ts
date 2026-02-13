@@ -5,3 +5,4 @@ export {
   DEFAULT_THEME_MODE,
 } from "./theme.constants";
 export type { ThemeMode } from "./theme.constants";
+export { APP_VERSION } from "./version";
