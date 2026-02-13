@@ -43,13 +43,13 @@ export const DARK_GLOBE_THEME: GlobeTheme = {
 };
 
 /**
- * Light theme - Deeper Rose
+ * Light theme - Purple/Violet
  */
 export const LIGHT_GLOBE_THEME: GlobeTheme = {
-  background: "#F5EFEF", // --color-bg-primary (light) - Deeper Rose
-  graticule: "rgba(113, 113, 122, 0.25)", // zinc-500 with 25% opacity
-  voronoiBorder: "#0891B2", // --color-accent (light)
-  airportPoint: "#0891B2", // --color-accent (light)
+  background: "#F5F3FF", // --color-bg-primary (light) - Purple/Violet
+  graticule: "rgba(167, 139, 250, 0.25)", // light purple with 25% opacity
+  voronoiBorder: "#7C3AED", // --color-accent (light)
+  airportPoint: "#7C3AED", // --color-accent (light)
 };
 
 /**

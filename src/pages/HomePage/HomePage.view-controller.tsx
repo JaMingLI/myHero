@@ -152,7 +152,7 @@ function HomePageViewController({
             >
               <Link
                 to={PATHS.PROJECTS}
-                className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] bg-[var(--color-accent)] rounded-lg font-primary text-base md:text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[#1ab8d4] transition-colors w-full md:w-auto lg:shadow-[0_2px_20px_rgba(34,211,238,0.4)] btn-primary-glow"
+                className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] bg-[var(--color-accent)] rounded-lg font-primary text-base md:text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[var(--color-accent-hover)] transition-colors w-full md:w-auto lg:shadow-[0_2px_20px_rgba(var(--color-accent-shadow),0.4)] btn-primary-glow"
               >
                 <img
                   src={IconFolder}
