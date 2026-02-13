@@ -1,7 +1,7 @@
 {
   "name": "my-hero",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --mode dev",
@@ -14,7 +14,7 @@
     "switch": "tsx scripts/switch-env.ts",
     "setup": "tsx scripts/setup.ts",
     "release": "pnpm run switch prod && pnpm run build && vercel --prod",
-    "release:dev": "pnpm run switch dev && pnpm run build && vercel --dev"
+    "release:dev": "pnpm run switch dev && pnpm run build && vercel"
   },
   "dependencies": {
     "@hookform/resolvers": "3.10.0",
