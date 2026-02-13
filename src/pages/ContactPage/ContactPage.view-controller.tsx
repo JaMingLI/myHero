@@ -30,12 +30,12 @@ const itemVariants: Variants = {
 
 // Contact Info Item Component
 function ContactInfoItem({
-  icon,
+  icon: Icon,
   label,
   value,
   href,
 }: {
-  icon: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
   label: string;
   value: string;
   href: string;
@@ -45,16 +45,16 @@ function ContactInfoItem({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-4 p-4 bg-[#1E293B] rounded-xl hover:bg-[#2D3A4F] transition-colors group"
+      className="flex items-center gap-4 p-4 bg-[var(--card)] rounded-xl hover:bg-[var(--color-bg-secondary)] transition-colors group"
     >
-      <div className="flex items-center justify-center w-10 h-10 bg-[#0A0F1C] rounded-lg">
-        <img src={icon} alt={label} className="w-5 h-5 opacity-70" />
+      <div className="flex items-center justify-center w-10 h-10 bg-[var(--color-bg-secondary)] rounded-lg">
+        <Icon className="w-5 h-5 opacity-70 text-[var(--color-text-secondary)]" />
       </div>
       <div className="flex flex-col">
-        <span className="text-xs text-[#64748B] uppercase tracking-wider">
+        <span className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">
           {label}
         </span>
-        <span className="text-sm text-[#94A3B8] group-hover:text-[#22D3EE] transition-colors">
+        <span className="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-accent)] transition-colors">
           {value}
         </span>
       </div>
@@ -79,13 +79,13 @@ function InputField({
 } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className="flex flex-col gap-2 flex-1">
-      <label className="text-sm font-medium text-[#94A3B8]">{label}</label>
+      <label className="text-sm font-medium text-[var(--color-text-secondary)]">{label}</label>
       <div className="relative">
         <input
           type="text"
           placeholder={placeholder}
-          className={`w-full px-4 py-3 pr-9 bg-[#0A0F1C] border rounded-lg text-white placeholder:text-[#475569] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE] transition-colors ${
-            error ? "border-red-500" : "border-[#475569]"
+          className={`w-full px-4 py-3 pr-9 bg-[var(--card)] border rounded-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-colors ${
+            error ? "border-red-500" : "border-[var(--color-border)]"
           }`}
           {...props}
         />
@@ -93,9 +93,9 @@ function InputField({
           <button
             type="button"
             onClick={onClear}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-[#94A3B8] hover:text-white transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
           >
-            <img src={IconEraser} alt="Clear" className="w-3.5 h-3.5" />
+            <IconEraser className="w-3.5 h-3.5" />
           </button>
         )}
       </div>
@@ -117,12 +117,12 @@ function TextareaField({
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm font-medium text-[#94A3B8]">{label}</label>
+      <label className="text-sm font-medium text-[var(--color-text-secondary)]">{label}</label>
       <textarea
         placeholder={placeholder}
         rows={5}
-        className={`w-full px-4 py-3 bg-[#0A0F1C] border rounded-lg text-white placeholder:text-[#475569] focus:outline-none focus:border-[#22D3EE] focus:ring-1 focus:ring-[#22D3EE] transition-colors resize-none ${
-          error ? "border-red-500" : "border-[#475569]"
+        className={`w-full px-4 py-3 bg-[var(--card)] border rounded-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] transition-colors resize-none ${
+          error ? "border-red-500" : "border-[var(--color-border)]"
         }`}
         {...props}
       />
@@ -163,10 +163,10 @@ function ContactPageViewController({
           className="text-center mb-6 md:mb-8 lg:mb-10 lg:text-left"
           variants={itemVariants}
         >
-          <h1 className="text-2xl md:text-[28px] lg:text-[32px] font-bold text-white">
+          <h1 className="text-2xl md:text-[28px] lg:text-[32px] font-bold text-[var(--color-text-primary)]">
             {t("contact.title")}
           </h1>
-          <p className="text-sm md:text-[15px] lg:text-base text-[#94A3B8] mt-2">
+          <p className="text-sm md:text-[15px] lg:text-base text-[var(--color-text-secondary)] mt-2">
             {t("contact.subtitle")}
           </p>
         </motion.div>
@@ -200,7 +200,7 @@ function ContactPageViewController({
 
           {/* Contact Form */}
           <motion.div
-            className="bg-[#1E293B] rounded-xl p-5 md:p-7 lg:p-8 flex-1 max-w-full lg:max-w-none md:max-w-[500px] md:mx-auto lg:mx-0"
+            className="bg-[var(--color-bg-secondary)] rounded-xl p-5 md:p-7 lg:p-8 flex-1 max-w-full lg:max-w-none md:max-w-[500px] md:mx-auto lg:mx-0"
             variants={itemVariants}
           >
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
@@ -247,18 +247,18 @@ function ContactPageViewController({
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-[#22D3EE] rounded-lg font-semibold text-[#0A0F1C] hover:bg-[#1ab8d4] disabled:opacity-50 disabled:cursor-not-allowed transition-colors mt-2"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-[var(--color-accent)] rounded-lg font-semibold text-white hover:bg-[var(--color-accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors mt-2"
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-[#0A0F1C] border-t-transparent rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                     {t("contact.form.sending")}
                   </>
                 ) : (
                   <>
-                    <img src={IconSend} alt="" className="w-4 h-4" />
+                    <IconSend className="w-4 h-4" />
                     {t("contact.form.submit")}
                   </>
                 )}
@@ -271,7 +271,7 @@ function ContactPageViewController({
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-lg"
                 >
-                  <img src={IconCheck} alt="" className="w-4 h-4" />
+                  <IconCheck className="w-4 h-4 text-green-400" />
                   <span className="text-sm text-green-400">
                     {t("contact.toast.success")}
                   </span>

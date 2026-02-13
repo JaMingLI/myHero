@@ -11,6 +11,9 @@
     "noResults": "查無結果",
     "theme": "主題",
     "menu": "選單",
+    "close": "關閉",
+    "darkMode": "深色模式",
+    "lightMode": "淺色模式",
     "all": "全部"
   },
   "auth": {

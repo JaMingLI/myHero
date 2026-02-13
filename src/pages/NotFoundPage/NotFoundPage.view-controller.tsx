@@ -46,7 +46,7 @@ function NotFoundPageViewController({ t }: INotFoundPageViewModel) {
       >
         {/* 404 Large Number */}
         <motion.span
-          className="text-[80px] md:text-[100px] lg:text-[120px] font-bold text-[#22D3EE] opacity-15 font-mono leading-none select-none"
+          className="text-[80px] md:text-[100px] lg:text-[120px] font-bold text-[var(--color-accent)] opacity-15 font-mono leading-none select-none"
           variants={itemVariants}
         >
           404
@@ -62,7 +62,7 @@ function NotFoundPageViewController({ t }: INotFoundPageViewModel) {
 
         {/* Description */}
         <motion.p
-          className="text-sm md:text-[15px] lg:text-base text-[#94A3B8] text-center max-w-[300px] md:max-w-none"
+          className="text-sm md:text-[15px] lg:text-base text-[var(--color-text-secondary)] text-center max-w-[300px] md:max-w-none"
           variants={itemVariants}
         >
           {t("notFound.description")}
@@ -77,13 +77,9 @@ function NotFoundPageViewController({ t }: INotFoundPageViewModel) {
           >
             <Link
               to={PATHS.HOME}
-              className="flex items-center justify-center gap-2 px-7 py-3.5 bg-[#22D3EE] rounded-lg font-primary text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[#1ab8d4] transition-colors shadow-[0_2px_20px_rgba(34,211,238,0.4)]"
+              className="flex items-center justify-center gap-2 px-7 py-3.5 bg-[var(--color-accent)] rounded-lg font-primary text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[var(--color-accent-hover)] transition-colors shadow-[0_2px_20px_rgba(var(--color-accent-shadow),0.4)]"
             >
-              <img
-                src={IconArrowLeft}
-                alt=""
-                className="w-4 h-4"
-              />
+              <IconArrowLeft className="w-4 h-4 text-[var(--color-bg-primary)]" />
               {t("notFound.backHome")}
             </Link>
           </motion.div>

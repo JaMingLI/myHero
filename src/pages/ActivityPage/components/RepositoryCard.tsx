@@ -39,12 +39,12 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
       href={repo.htmlUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-[#1E293B] rounded-lg p-4 md:p-5 hover:ring-2 hover:ring-[var(--color-accent)] transition-shadow"
+      className="block bg-[var(--card)] rounded-lg p-4 md:p-5 hover:ring-2 hover:ring-[var(--color-accent)] transition-shadow"
       variants={cardVariants}
     >
       {/* Header with icon and name */}
       <div className="flex items-center gap-2 mb-2">
-        <img src={IconFolderGit2} alt="" className="w-4 h-4" />
+        <IconFolderGit2 className="w-4 h-4 text-[var(--color-text-secondary)]" />
         <span className="font-mono text-sm text-[var(--color-accent)] font-medium truncate">
           {repo.name}
         </span>
@@ -52,13 +52,13 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
 
       {/* Description */}
       {repo.description && (
-        <p className="font-primary text-[12px] md:text-[13px] text-[#94A3B8] leading-[1.5] line-clamp-2 mb-3">
+        <p className="font-primary text-[12px] md:text-[13px] text-[var(--color-text-secondary)] leading-[1.5] line-clamp-2 mb-3">
           {repo.description}
         </p>
       )}
 
       {/* Meta row: language, stars, updated time */}
-      <div className="flex items-center gap-3 text-[11px] md:text-xs text-[#64748B]">
+      <div className="flex items-center gap-3 text-[11px] md:text-xs text-[var(--color-text-muted)]">
         {/* Language */}
         {repo.language && (
           <div className="flex items-center gap-1.5">
@@ -70,7 +70,7 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
         {/* Stars */}
         {repo.starCount > 0 && (
           <div className="flex items-center gap-1">
-            <img src={IconStar} alt="" className="w-3 h-3" />
+            <IconStar className="w-3 h-3 text-[var(--color-text-muted)]" />
             <span>{repo.starCount}</span>
           </div>
         )}

@@ -4,6 +4,7 @@ import {
   LANGUAGE_LABELS,
   type Language,
 } from "@/lib/i18n";
+import { cn } from "@/utils/classnames";
 
 /**
  * Language switcher component that displays buttons for each supported language.
@@ -20,21 +21,19 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-1 bg-[var(--color-bg-secondary)] rounded-md p-0.5">
+    <div className="inline-flex items-center gap-1 bg-[var(--color-bg-secondary)] rounded-md p-0.5">
       {SUPPORTED_LANGUAGES.map((language) => {
         const isActive = currentLanguage === language;
         return (
           <button
             key={language}
             onClick={() => handleLanguageChange(language)}
-            className={`
-              px-2.5 py-1.5 text-xs font-medium rounded transition-colors
-              ${
-                isActive
-                  ? "bg-[var(--color-accent)] text-[var(--color-bg-primary)]"
-                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }
-            `}
+            className={cn(
+              "px-2.5 py-1.5 text-xs font-medium rounded transition-colors",
+              isActive
+                ? "bg-[var(--color-accent)] text-[var(--color-bg-primary)]"
+                : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+            )}
             aria-label={`Switch to ${LANGUAGE_LABELS[language]}`}
             aria-pressed={isActive}
           >

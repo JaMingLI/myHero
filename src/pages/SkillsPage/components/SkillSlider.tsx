@@ -14,18 +14,18 @@ export function SkillSlider({ id, label, value, onChange }: SkillSliderProps) {
     <div className="flex flex-col gap-2 w-full">
       {/* Label and value display */}
       <div className="flex justify-between items-center">
-        <span className="text-white text-sm font-medium">{label}</span>
-        <span className="text-[#22D3EE] text-sm font-semibold">{value}</span>
+        <span className="text-[var(--color-text-primary)] text-sm font-medium">{label}</span>
+        <span className="text-[var(--color-accent)] text-sm font-semibold">{value}</span>
       </div>
 
       {/* Progress bar with overlay slider */}
       <div className="relative h-[6px]">
         {/* Background track */}
-        <div className="absolute inset-0 bg-[#1E293B] rounded-full" />
+        <div className="absolute inset-0 bg-[var(--color-border)] rounded-full" />
 
         {/* Filled progress */}
         <div
-          className="absolute h-full bg-[#22D3EE] rounded-full transition-all duration-75"
+          className="absolute h-full bg-[var(--color-accent)] rounded-full transition-all duration-75"
           style={{ width: `${value}%` }}
         />
 

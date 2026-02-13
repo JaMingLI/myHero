@@ -54,14 +54,14 @@ export function ActivityTimeline({
 }: ActivityTimelineProps) {
   if (isLoading) {
     return (
-      <div className="bg-[#1E293B] rounded-lg p-4 md:p-5">
+      <div className="bg-[var(--card)] rounded-lg p-4 md:p-5">
         <div className="animate-pulse space-y-4">
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#334155] mt-2" />
+              <div className="w-2 h-2 rounded-full bg-[var(--color-bg-secondary)] mt-2" />
               <div className="flex-1 space-y-2">
-                <div className="h-4 bg-[#334155] rounded w-3/4" />
-                <div className="h-3 bg-[#334155] rounded w-1/4" />
+                <div className="h-4 bg-[var(--color-bg-secondary)] rounded w-3/4" />
+                <div className="h-3 bg-[var(--color-bg-secondary)] rounded w-1/4" />
               </div>
             </div>
           ))}
@@ -72,20 +72,20 @@ export function ActivityTimeline({
 
   if (activities.length === 0) {
     return (
-      <div className="bg-[#1E293B] rounded-lg p-4 md:p-5 text-center">
-        <p className="text-[#94A3B8] text-sm">{t("activity.noActivity")}</p>
+      <div className="bg-[var(--card)] rounded-lg p-4 md:p-5 text-center">
+        <p className="text-[var(--color-text-secondary)] text-sm">{t("activity.noActivity")}</p>
       </div>
     );
   }
 
   return (
     <motion.div
-      className="bg-[#1E293B] rounded-lg max-h-[500px] overflow-y-auto scrollbar-thin"
+      className="bg-[var(--card)] rounded-lg max-h-[500px] overflow-y-auto scrollbar-thin"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <div className="divide-y divide-[#0F172A]">
+      <div className="divide-y divide-[var(--color-border)]">
         {activities.map((activity) => (
           <motion.div
             key={activity.id}
@@ -105,11 +105,11 @@ export function ActivityTimeline({
                   </p>
                   {/* Repo name and time */}
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="font-mono text-[11px] md:text-xs text-[#64748B]">
+                    <span className="font-mono text-[11px] md:text-xs text-[var(--color-text-muted)]">
                       {activity.repoName}
                     </span>
-                    <span className="text-[#475569]">·</span>
-                    <span className="text-[11px] md:text-xs text-[#64748B]">
+                    <span className="text-[var(--color-text-muted)]">·</span>
+                    <span className="text-[11px] md:text-xs text-[var(--color-text-muted)]">
                       {formatActivityTime(activity.createdAt)}
                     </span>
                   </div>

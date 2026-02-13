@@ -7,3 +7,5 @@ export { useD3Canvas } from "./useD3Canvas";
 export type { UseD3CanvasOptions, UseD3CanvasReturn } from "./useD3Canvas";
 export { useContainerSize } from "./useContainerSize";
 export type { ContainerSize } from "./useContainerSize";
+export { useTheme } from "./useTheme";
+export type { UseThemeReturn } from "./useTheme";
