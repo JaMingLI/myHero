@@ -146,7 +146,7 @@ export function ProjectModal({ isOpen, project, onClose, t }: ProjectModalProps)
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1.5 bg-[#0F172A] rounded-xl font-secondary text-xs font-medium text-[var(--color-accent)]"
+                      className="px-3 py-1.5 bg-[var(--color-bg-primary)] rounded-xl font-secondary text-xs font-medium text-[var(--color-accent)]"
                     >
                       {tag}
                     </span>
@@ -240,7 +240,7 @@ export function ProjectModal({ isOpen, project, onClose, t }: ProjectModalProps)
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1.5 bg-[#0F172A] rounded-xl font-secondary text-xs font-medium text-[var(--color-accent)]"
+                      className="px-3 py-1.5 bg-[var(--color-bg-primary)] rounded-xl font-secondary text-xs font-medium text-[var(--color-accent)]"
                     >
                       {tag}
                     </span>
