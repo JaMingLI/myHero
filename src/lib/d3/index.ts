@@ -15,5 +15,10 @@ export { createGlobeRenderer } from "./geo-voronoi";
 export type { GlobeConfig, GlobeRenderer } from "./geo-voronoi";
 
 // Types
-export { DEFAULT_GLOBE_THEME } from "./types";
+export {
+  DEFAULT_GLOBE_THEME,
+  DARK_GLOBE_THEME,
+  LIGHT_GLOBE_THEME,
+  getGlobeTheme,
+} from "./types";
 export type { AirportData, GlobeTheme } from "./types";

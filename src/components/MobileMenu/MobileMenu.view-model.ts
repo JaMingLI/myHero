@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "@/lib/i18n";
+import { useTheme } from "@/hooks";
 
 export interface MobileMenuProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ export const MobileMenuViewModel = ({
 }: MobileMenuProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { isDark, toggleTheme } = useTheme();
 
   const handleNavigation = useCallback(
     (path: string) => {
@@ -30,6 +32,8 @@ export const MobileMenuViewModel = ({
     currentPath,
     t,
     handleNavigation,
+    isDark,
+    toggleTheme,
   };
 };
 

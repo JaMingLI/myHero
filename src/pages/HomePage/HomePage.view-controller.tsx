@@ -48,6 +48,7 @@ function HomePageViewController({
   isGlobeReady,
   handleGlobeAnimationComplete,
   t,
+  globeTheme,
 }: IHomePageViewModel) {
   return (
     <section className="relative flex-1 flex items-center justify-center px-4 md:px-12 lg:px-[120px] py-10 md:py-20">
@@ -194,7 +195,7 @@ function HomePageViewController({
         <div className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none px-[120px]">
           <div className="flex w-full max-w-[1440px] justify-end">
             <div className="size-[clamp(400px,min(50vw,calc(100vh-200px)),900px)] pointer-events-auto">
-              <WorldAirportsVoronoi autoRotate className="w-full h-full" />
+              <WorldAirportsVoronoi autoRotate theme={globeTheme} className="w-full h-full" />
             </div>
           </div>
         </div>

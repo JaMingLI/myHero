@@ -13,6 +13,7 @@ import {
   IconActivity,
   IconMail,
   IconMoon,
+  IconSun,
 } from "@/assets";
 import { PATHS } from "@/router";
 import { LanguageSwitcher } from "@/components";
@@ -70,6 +71,8 @@ function MobileMenuViewController({
   currentPath,
   t,
   handleNavigation,
+  isDark,
+  toggleTheme,
 }: IMobileMenuViewModel) {
   const isActive = (path: string) => currentPath === path;
 
@@ -153,27 +156,33 @@ function MobileMenuViewController({
             {/* Footer section */}
             <div className="px-6 py-6 border-t border-[var(--color-border)]">
               {/* Theme Toggle */}
-              <motion.div
+              <motion.button
                 variants={itemVariants}
                 initial="hidden"
                 animate="visible"
-                className="flex items-center justify-between px-4 py-3 rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors"
+                onClick={toggleTheme}
+                className="flex items-center justify-between w-full px-4 py-3 rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors"
               >
                 <div className="flex items-center gap-4">
                   <img
-                    src={IconMoon}
+                    src={isDark ? IconMoon : IconSun}
                     alt=""
                     className="w-6 h-6 opacity-70"
                   />
                   <span className="font-primary text-base font-medium text-[var(--color-text-primary)]">
-                    {t("common.darkMode")}
+                    {isDark ? t("common.darkMode") : t("common.lightMode")}
                   </span>
                 </div>
-                {/* Toggle switch placeholder */}
-                <div className="w-12 h-6 bg-[var(--color-bg-secondary)] rounded-full relative">
-                  <div className="absolute right-1 top-1 w-4 h-4 bg-[var(--color-accent)] rounded-full" />
+                {/* Toggle switch */}
+                <div className="w-12 h-6 bg-[var(--color-bg-secondary)] rounded-full relative border border-[var(--color-border)]">
+                  <div
+                    className={cn(
+                      "absolute top-1 w-4 h-4 bg-[var(--color-accent)] rounded-full transition-all duration-200",
+                      isDark ? "right-1" : "left-1"
+                    )}
+                  />
                 </div>
-              </motion.div>
+              </motion.button>
 
               {/* Language Switcher */}
               <motion.div
