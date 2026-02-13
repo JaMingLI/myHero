@@ -103,7 +103,7 @@ function SkillsPageViewController({
           <motion.button
             type="button"
             onClick={handleReset}
-            className="flex items-center justify-center gap-2 w-full mt-6 px-4 py-3 bg-[var(--color-border)] rounded-lg text-[var(--color-text-secondary)] font-medium hover:bg-[var(--color-bg-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+            className="flex items-center justify-center gap-2 w-full mt-6 px-4 py-3 bg-[var(--color-border)] rounded-lg text-[var(--color-text-primary)] font-medium hover:bg-[var(--color-bg-secondary)] hover:text-[var(--color-accent)] transition-colors"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
