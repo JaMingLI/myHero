@@ -71,11 +71,7 @@ function HomePageViewController({
             /* Mobile/Tablet: Avatar with Glow Effect */
             <div className="flex items-center justify-center w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-bg-primary)] avatar-glow">
               <div className="flex items-center justify-center w-[102px] h-[102px] md:w-[140px] md:h-[140px] rounded-full bg-[var(--color-bg-secondary)]">
-                <img
-                  src={IconUser}
-                  alt="Avatar"
-                  className="w-10 h-10 md:w-14 md:h-14 opacity-50"
-                />
+                <IconUser className="w-10 h-10 md:w-14 md:h-14 opacity-50 text-[var(--color-text-secondary)]" />
               </div>
             </div>
           )}
@@ -154,17 +150,9 @@ function HomePageViewController({
                 to={PATHS.PROJECTS}
                 className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] bg-[var(--color-accent)] rounded-lg font-primary text-base md:text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[var(--color-accent-hover)] transition-colors w-full md:w-auto lg:shadow-[0_2px_20px_rgba(var(--color-accent-shadow),0.4)] btn-primary-glow"
               >
-                <img
-                  src={IconFolder}
-                  alt=""
-                  className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
-                />
+                <IconFolder className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden" />
                 {t("hero.viewProjects")}
-                <img
-                  src={IconArrowRight}
-                  alt=""
-                  className="hidden lg:block w-4 h-4"
-                />
+                <IconArrowRight className="hidden lg:block w-4 h-4" />
               </Link>
             </motion.div>
             <motion.div
@@ -177,11 +165,7 @@ function HomePageViewController({
                 to={PATHS.CONTACT}
                 className="flex items-center justify-center gap-2 px-8 md:px-7 py-3 md:py-[14px] rounded-lg font-primary text-base md:text-sm font-semibold md:font-medium text-[var(--color-accent)] md:text-[var(--color-text-secondary)] border border-[var(--color-accent)] md:border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors w-full md:w-auto"
               >
-                <img
-                  src={IconMail}
-                  alt=""
-                  className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden"
-                />
+                <IconMail className="w-[18px] h-[18px] md:w-4 md:h-4 lg:hidden" />
                 {t("hero.contactMe")}
               </Link>
             </motion.div>

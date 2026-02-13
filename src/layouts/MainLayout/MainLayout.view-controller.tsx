@@ -50,7 +50,12 @@ function MainLayoutViewController({
     );
 
   const getMobileTabIconClass = (path: string) =>
-    cn("w-5 h-5", !isActive(path) && "opacity-50");
+    cn(
+      "w-5 h-5",
+      isActive(path)
+        ? "text-[var(--color-accent)]"
+        : "text-[var(--color-text-muted)] opacity-50"
+    );
 
   return (
     <div className="flex flex-col h-full w-full bg-[var(--color-bg-primary)]">
@@ -95,11 +100,11 @@ function MainLayoutViewController({
             className="flex items-center justify-center w-9 h-9 bg-[var(--color-bg-secondary)] rounded-md hover:opacity-80 transition-opacity"
             aria-label={t("common.theme")}
           >
-            <img
-              src={isDark ? IconMoon : IconSun}
-              alt={t("common.theme")}
-              className="w-5 h-5 opacity-70"
-            />
+            {isDark ? (
+              <IconMoon className="w-5 h-5 opacity-70 text-[var(--color-text-secondary)]" />
+            ) : (
+              <IconSun className="w-5 h-5 opacity-70 text-[var(--color-text-secondary)]" />
+            )}
           </button>
         </nav>
 
@@ -109,7 +114,7 @@ function MainLayoutViewController({
           className="flex md:hidden items-center justify-center w-10 h-10 rounded-md"
           aria-label={t("common.menu")}
         >
-          <img src={IconMenu} alt="" className="w-6 h-6" />
+          <IconMenu className="w-6 h-6 text-[var(--color-text-primary)]" />
         </button>
       </header>
 
@@ -137,11 +142,7 @@ function MainLayoutViewController({
             rel="noopener noreferrer"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
           >
-            <img
-              src={IconGitHub}
-              alt="GitHub"
-              className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity"
-            />
+            <IconGitHub className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
           <a
             href="https://linkedin.com"
@@ -149,21 +150,13 @@ function MainLayoutViewController({
             rel="noopener noreferrer"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
           >
-            <img
-              src={IconLinkedin}
-              alt="LinkedIn"
-              className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity"
-            />
+            <IconLinkedin className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
           <a
             href="mailto:contact@alen.dev"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
           >
-            <img
-              src={IconMail}
-              alt="Email"
-              className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity"
-            />
+            <IconMail className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
         </div>
       </footer>
@@ -174,11 +167,7 @@ function MainLayoutViewController({
           to={paths.HOME}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img
-            src={IconHome}
-            alt={t("navigation.home")}
-            className={getMobileTabIconClass(paths.HOME)}
-          />
+          <IconHome className={getMobileTabIconClass(paths.HOME)} />
           <span className={getMobileTabTextClass(paths.HOME)}>
             {t("navigation.home")}
           </span>
@@ -187,11 +176,7 @@ function MainLayoutViewController({
           to={paths.PROJECTS}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img
-            src={IconFolder}
-            alt={t("navigation.projects")}
-            className={getMobileTabIconClass(paths.PROJECTS)}
-          />
+          <IconFolder className={getMobileTabIconClass(paths.PROJECTS)} />
           <span className={getMobileTabTextClass(paths.PROJECTS)}>
             {t("navigation.projects")}
           </span>
@@ -200,11 +185,7 @@ function MainLayoutViewController({
           to={paths.ACTIVITY}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img
-            src={IconActivity}
-            alt={t("navigation.activity")}
-            className={getMobileTabIconClass(paths.ACTIVITY)}
-          />
+          <IconActivity className={getMobileTabIconClass(paths.ACTIVITY)} />
           <span className={getMobileTabTextClass(paths.ACTIVITY)}>
             {t("navigation.activity")}
           </span>
@@ -213,11 +194,7 @@ function MainLayoutViewController({
           to={paths.CONTACT}
           className="flex flex-col items-center justify-center gap-1 flex-1 h-full"
         >
-          <img
-            src={IconMail}
-            alt={t("navigation.contact")}
-            className={getMobileTabIconClass(paths.CONTACT)}
-          />
+          <IconMail className={getMobileTabIconClass(paths.CONTACT)} />
           <span className={getMobileTabTextClass(paths.CONTACT)}>
             {t("navigation.contact")}
           </span>

@@ -79,11 +79,7 @@ function NotFoundPageViewController({ t }: INotFoundPageViewModel) {
               to={PATHS.HOME}
               className="flex items-center justify-center gap-2 px-7 py-3.5 bg-[#22D3EE] rounded-lg font-primary text-sm font-semibold text-[var(--color-bg-primary)] hover:bg-[#1ab8d4] transition-colors shadow-[0_2px_20px_rgba(34,211,238,0.4)]"
             >
-              <img
-                src={IconArrowLeft}
-                alt=""
-                className="w-4 h-4"
-              />
+              <IconArrowLeft className="w-4 h-4" />
               {t("notFound.backHome")}
             </Link>
           </motion.div>

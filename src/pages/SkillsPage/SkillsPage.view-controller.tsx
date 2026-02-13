@@ -107,7 +107,7 @@ function SkillsPageViewController({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <img src={IconRotateCcw} alt="" className="w-4 h-4 opacity-70" />
+            <IconRotateCcw className="w-4 h-4 opacity-70" />
             {t("skills.reset")}
           </motion.button>
         </motion.div>
