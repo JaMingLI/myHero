@@ -13,7 +13,8 @@
     "test:coverage": "vitest --coverage",
     "switch": "tsx scripts/switch-env.ts",
     "setup": "tsx scripts/setup.ts",
-    "release": "pnpm run switch prod && pnpm run build && vercel --prod"
+    "release": "pnpm run switch prod && pnpm run build && vercel --prod",
+    "release:dev": "pnpm run switch dev && pnpm run build && vercel --dev"
   },
   "dependencies": {
     "@hookform/resolvers": "3.10.0",
@@ -57,6 +58,7 @@
     "typescript-eslint": "8.54.0",
     "vercel": "50.15.1",
     "vite": "6.4.1",
+    "vite-plugin-svgr": "^4.5.0",
     "vitest": "2.1.9"
   },
   "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6"
