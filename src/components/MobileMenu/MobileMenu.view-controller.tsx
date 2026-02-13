@@ -80,7 +80,12 @@ function MobileMenuViewController({
     cn(isActive(path) ? "text-[var(--color-accent)]" : "text-[var(--color-text-primary)]");
 
   const getIconClass = (path: string) =>
-    cn("w-6 h-6", !isActive(path) && "opacity-70");
+    cn(
+      "w-6 h-6",
+      isActive(path)
+        ? "text-[var(--color-accent)]"
+        : "text-[var(--color-text-primary)] opacity-70"
+    );
 
   return (
     <AnimatePresence>
@@ -118,7 +123,7 @@ function MobileMenuViewController({
                 className="flex items-center justify-center w-10 h-10 rounded-md hover:bg-[var(--color-bg-secondary)] transition-colors"
                 aria-label={t("common.close")}
               >
-                <img src={IconClose} alt="" className="w-6 h-6" />
+                <IconClose className="w-6 h-6 text-[var(--color-text-primary)]" />
               </button>
             </div>
 
@@ -130,7 +135,7 @@ function MobileMenuViewController({
               animate="visible"
             >
               <ul className="flex flex-col gap-2">
-                {navItems.map(({ path, icon, labelKey }) => (
+                {navItems.map(({ path, icon: Icon, labelKey }) => (
                   <motion.li key={path} variants={itemVariants}>
                     <button
                       onClick={() => handleNavigation(path)}
@@ -139,11 +144,7 @@ function MobileMenuViewController({
                         getNavItemClass(path)
                       )}
                     >
-                      <img
-                        src={icon}
-                        alt=""
-                        className={getIconClass(path)}
-                      />
+                      <Icon className={getIconClass(path)} />
                       <span className="font-primary text-base font-medium">
                         {t(labelKey)}
                       </span>
@@ -164,11 +165,11 @@ function MobileMenuViewController({
                 className="flex items-center justify-between w-full px-4 py-3 rounded-lg hover:bg-[var(--color-bg-secondary)] transition-colors"
               >
                 <div className="flex items-center gap-4">
-                  <img
-                    src={isDark ? IconMoon : IconSun}
-                    alt=""
-                    className="w-6 h-6 opacity-70"
-                  />
+                  {isDark ? (
+                    <IconMoon className="w-6 h-6 opacity-70 text-[var(--color-text-secondary)]" />
+                  ) : (
+                    <IconSun className="w-6 h-6 opacity-70 text-[var(--color-text-secondary)]" />
+                  )}
                   <span className="font-primary text-base font-medium text-[var(--color-text-primary)]">
                     {isDark ? t("common.darkMode") : t("common.lightMode")}
                   </span>

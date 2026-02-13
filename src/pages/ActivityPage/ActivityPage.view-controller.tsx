@@ -62,7 +62,7 @@ function ActivityPageViewController({
           {/* Repositories Column */}
           <div className="flex-1 lg:max-w-[50%]">
             <SectionLabel
-              icon={<img src={IconFolderGit2} alt="" className="w-4 h-4" />}
+              icon={<IconFolderGit2 className="w-4 h-4 text-[var(--color-text-secondary)]" />}
               labelKey="activity.sections.repositories"
               t={t}
             />
@@ -107,7 +107,7 @@ function ActivityPageViewController({
           {/* Activity Timeline Column */}
           <div className="flex-1 lg:max-w-[50%]">
             <SectionLabel
-              icon={<img src={IconActivity} alt="" className="w-4 h-4" />}
+              icon={<IconActivity className="w-4 h-4 text-[var(--color-text-secondary)]" />}
               labelKey="activity.sections.timeline"
               t={t}
             />

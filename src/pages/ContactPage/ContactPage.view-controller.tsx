@@ -30,12 +30,12 @@ const itemVariants: Variants = {
 
 // Contact Info Item Component
 function ContactInfoItem({
-  icon,
+  icon: Icon,
   label,
   value,
   href,
 }: {
-  icon: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
   label: string;
   value: string;
   href: string;
@@ -48,7 +48,7 @@ function ContactInfoItem({
       className="flex items-center gap-4 p-4 bg-[var(--card)] rounded-xl hover:bg-[var(--color-bg-secondary)] transition-colors group"
     >
       <div className="flex items-center justify-center w-10 h-10 bg-[var(--color-bg-secondary)] rounded-lg">
-        <img src={icon} alt={label} className="w-5 h-5 opacity-70" />
+        <Icon className="w-5 h-5 opacity-70 text-[var(--color-text-secondary)]" />
       </div>
       <div className="flex flex-col">
         <span className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">
@@ -95,7 +95,7 @@ function InputField({
             onClick={onClear}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
           >
-            <img src={IconEraser} alt="Clear" className="w-3.5 h-3.5" />
+            <IconEraser className="w-3.5 h-3.5" />
           </button>
         )}
       </div>
@@ -258,7 +258,7 @@ function ContactPageViewController({
                   </>
                 ) : (
                   <>
-                    <img src={IconSend} alt="" className="w-4 h-4" />
+                    <IconSend className="w-4 h-4" />
                     {t("contact.form.submit")}
                   </>
                 )}
@@ -271,7 +271,7 @@ function ContactPageViewController({
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-lg"
                 >
-                  <img src={IconCheck} alt="" className="w-4 h-4" />
+                  <IconCheck className="w-4 h-4 text-green-400" />
                   <span className="text-sm text-green-400">
                     {t("contact.toast.success")}
                   </span>

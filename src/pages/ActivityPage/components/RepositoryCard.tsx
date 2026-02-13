@@ -44,7 +44,7 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
     >
       {/* Header with icon and name */}
       <div className="flex items-center gap-2 mb-2">
-        <img src={IconFolderGit2} alt="" className="w-4 h-4" />
+        <IconFolderGit2 className="w-4 h-4 text-[var(--color-text-secondary)]" />
         <span className="font-mono text-sm text-[var(--color-accent)] font-medium truncate">
           {repo.name}
         </span>
@@ -70,7 +70,7 @@ export function RepositoryCard({ repo }: RepositoryCardProps) {
         {/* Stars */}
         {repo.starCount > 0 && (
           <div className="flex items-center gap-1">
-            <img src={IconStar} alt="" className="w-3 h-3" />
+            <IconStar className="w-3 h-3 text-[var(--color-text-muted)]" />
             <span>{repo.starCount}</span>
           </div>
         )}
