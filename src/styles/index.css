@@ -54,7 +54,7 @@
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
-  --color-border: #1E293B;
+  --color-border: #334155;
 
   /* Generic theme variables */
   --background: #0A0F1C;
@@ -72,8 +72,8 @@
   --accent: #22D3EE;
   --accent-foreground: #171717;
   --destructive: #ff4444;
-  --border: #1E293B;
-  --input: #1E293B;
+  --border: #334155;
+  --input: #334155;
   --ring: #64748B;
 }
 
