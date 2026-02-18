@@ -3,5 +3,7 @@ export { MobileMenu } from "./MobileMenu";
 export type { MobileMenuProps } from "./MobileMenu";
 export { ProjectModal } from "./ProjectModal";
 export type { ProjectModalProps, ProjectModalData } from "./ProjectModal";
+export { ProjectionTransitions } from "./ProjectionTransitions";
+export type { ProjectionTransitionsProps } from "./ProjectionTransitions";
 export { WorldAirportsVoronoi } from "./WorldAirportsVoronoi";
 export type { WorldAirportsVoronoiProps } from "./WorldAirportsVoronoi";

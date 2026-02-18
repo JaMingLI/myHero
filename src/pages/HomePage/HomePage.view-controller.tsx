@@ -6,12 +6,11 @@ import {
   type IHomePageViewModel,
 } from "./HomePage.view-model";
 import {
-  IconUser,
   IconFolder,
   IconArrowRight,
   IconMail,
 } from "@/assets";
-import { WorldAirportsVoronoi } from "@/components";
+import { WorldAirportsVoronoi, ProjectionTransitions } from "@/components";
 import { PATHS } from "@/router/paths";
 import type { Variants } from "@/lib/framer-motion";
 
@@ -49,6 +48,7 @@ function HomePageViewController({
   handleGlobeAnimationComplete,
   t,
   globeTheme,
+  projectionTheme,
 }: IHomePageViewModel) {
   return (
     <section className="relative flex-1 flex items-center justify-center px-4 md:px-12 lg:px-[120px] py-10 md:py-20">
@@ -68,12 +68,12 @@ function HomePageViewController({
             /* Desktop: 空 placeholder 維持佈局空間，Globe 在 motion.div 外部渲染 */
             <div className="w-full h-full" />
           ) : (
-            /* Mobile/Tablet: Avatar with Glow Effect */
-            <div className="flex items-center justify-center w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-bg-primary)] avatar-glow">
-              <div className="flex items-center justify-center w-[102px] h-[102px] md:w-[140px] md:h-[140px] rounded-full bg-[var(--color-bg-secondary)]">
-                <IconUser className="w-10 h-10 md:w-14 md:h-14 opacity-50 text-[var(--color-text-secondary)]" />
-              </div>
-            </div>
+            /* Mobile/Tablet: Projection Transitions Globe */
+            <ProjectionTransitions
+              className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]"
+              theme={projectionTheme}
+              autoAnimate
+            />
           )}
         </motion.div>
 

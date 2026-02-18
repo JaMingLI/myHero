@@ -31,6 +31,7 @@
     "react-i18next": "15.7.4",
     "react-router-dom": "7.13.0",
     "tailwind-merge": "2.6.1",
+    "topojson-client": "^3.1.0",
     "zod": "3.25.76",
     "zustand": "5.0.11"
   },
@@ -44,6 +45,8 @@
     "@types/node": "22.19.10",
     "@types/react": "19.2.13",
     "@types/react-dom": "19.2.3",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
     "@vitejs/plugin-react-swc": "3.11.0",
     "autoprefixer": "10.4.24",
     "eslint": "9.39.2",

@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { useTypingEffect, useMediaQuery, useTheme } from "@/hooks";
 import { useTranslation } from "@/lib/i18n";
-import { getGlobeTheme } from "@/lib/d3";
+import { getGlobeTheme, getProjectionTheme } from "@/lib/d3";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface HomePageProps {
@@ -32,6 +32,9 @@ export const HomePageViewModel = (_props: HomePageProps) => {
   // Globe theme based on current theme mode
   const globeTheme = useMemo(() => getGlobeTheme(isDark), [isDark]);
 
+  // Projection theme for mobile/tablet
+  const projectionTheme = useMemo(() => getProjectionTheme(isDark), [isDark]);
+
   return {
     roleText,
     isTypingComplete,
@@ -40,6 +43,7 @@ export const HomePageViewModel = (_props: HomePageProps) => {
     handleGlobeAnimationComplete,
     t,
     globeTheme,
+    projectionTheme,
   };
 };
 
