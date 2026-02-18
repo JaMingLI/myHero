@@ -64,3 +64,57 @@ export const DEFAULT_GLOBE_THEME: GlobeTheme = DARK_GLOBE_THEME;
 export const getGlobeTheme = (isDark: boolean): GlobeTheme => {
   return isDark ? DARK_GLOBE_THEME : LIGHT_GLOBE_THEME;
 };
+
+/**
+ * Projection types for transitions
+ */
+export type ProjectionType =
+  | "orthographic"
+  | "stereographic"
+  | "mercator"
+  | "azimuthalEqualArea";
+
+/**
+ * Theme configuration for projection transitions
+ */
+export interface ProjectionTheme {
+  /** Background/sphere fill color */
+  background: string;
+  /** Graticule (grid lines) color */
+  graticule: string;
+  /** Sphere outline color */
+  sphereOutline: string;
+  /** Land fill color */
+  landFill: string;
+  /** Land stroke color (optional) */
+  landStroke?: string;
+}
+
+/**
+ * Dark theme for projection transitions
+ */
+export const DARK_PROJECTION_THEME: ProjectionTheme = {
+  background: "#0A0F1C",
+  graticule: "rgba(30, 41, 59, 0.5)",
+  sphereOutline: "rgba(34, 211, 238, 0.3)",
+  landFill: "rgba(34, 211, 238, 0.15)",
+  landStroke: "rgba(34, 211, 238, 0.4)",
+};
+
+/**
+ * Light theme for projection transitions
+ */
+export const LIGHT_PROJECTION_THEME: ProjectionTheme = {
+  background: "#F5F3FF",
+  graticule: "rgba(167, 139, 250, 0.25)",
+  sphereOutline: "rgba(124, 58, 237, 0.3)",
+  landFill: "rgba(124, 58, 237, 0.12)",
+  landStroke: "rgba(124, 58, 237, 0.35)",
+};
+
+/**
+ * Helper to get projection theme based on isDark flag
+ */
+export const getProjectionTheme = (isDark: boolean): ProjectionTheme => {
+  return isDark ? DARK_PROJECTION_THEME : LIGHT_PROJECTION_THEME;
+};
