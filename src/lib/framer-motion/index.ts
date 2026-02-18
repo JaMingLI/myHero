@@ -2,5 +2,5 @@
  * Framer Motion wrapper
  * Re-exports motion components and utilities for animation
  */
-export { motion, AnimatePresence } from "framer-motion";
-export type { Variants, MotionProps, HTMLMotionProps } from "framer-motion";
+export { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+export type { Variants, MotionProps, HTMLMotionProps, PanInfo } from "framer-motion";
