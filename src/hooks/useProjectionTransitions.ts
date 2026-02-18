@@ -152,12 +152,6 @@ export function useProjectionTransitions({
       // Calculate time since last projection switch
       const timeSinceSwitch = elapsed - lastSwitchTimeRef.current;
 
-      // Determine current projection state
-      const currentIdx = projectionIndexRef.current;
-      const nextIdx = (currentIdx + 1) % PROJECTION_SEQUENCE.length;
-      const fromProj = PROJECTION_SEQUENCE[currentIdx];
-      const toProj = PROJECTION_SEQUENCE[nextIdx];
-
       let transitionProgress = 0;
 
       if (timeSinceSwitch >= PROJECTION_SWITCH_INTERVAL) {
@@ -167,12 +161,20 @@ export function useProjectionTransitions({
 
         if (transitionProgress >= 1) {
           // Transition complete, move to next projection
-          projectionIndexRef.current = nextIdx;
+          projectionIndexRef.current =
+            (projectionIndexRef.current + 1) % PROJECTION_SEQUENCE.length;
           lastSwitchTimeRef.current = elapsed;
           transitionProgress = 0;
-          setCurrentProjection(PROJECTION_SEQUENCE[nextIdx]);
+          setCurrentProjection(PROJECTION_SEQUENCE[projectionIndexRef.current]);
         }
       }
+
+      // Determine current projection state AFTER potential index update
+      // This ensures fromProj is the correct projection after transition completes
+      const currentIdx = projectionIndexRef.current;
+      const nextIdx = (currentIdx + 1) % PROJECTION_SEQUENCE.length;
+      const fromProj = PROJECTION_SEQUENCE[currentIdx];
+      const toProj = PROJECTION_SEQUENCE[nextIdx];
 
       transitionProgressRef.current = transitionProgress;
 

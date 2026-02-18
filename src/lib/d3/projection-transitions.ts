@@ -152,14 +152,8 @@ export function createProjectionTransitionsRenderer(
   ): void {
     const easedT = easeCubicInOut(Math.min(1, Math.max(0, transitionProgress)));
 
-    // Create projections
+    // Create from projection (used when no transition is in progress)
     const fromProj = projectionFactories[fromProjection]()
-      .scale(scale)
-      .translate([width / 2, height / 2])
-      .clipAngle(90)
-      .rotate(rotation);
-
-    const toProj = projectionFactories[toProjection]()
       .scale(scale)
       .translate([width / 2, height / 2])
       .clipAngle(90)
@@ -170,10 +164,11 @@ export function createProjectionTransitionsRenderer(
 
     if (transitionProgress <= 0) {
       currentProjection = fromProj;
-    } else if (transitionProgress >= 1) {
-      currentProjection = toProj;
     } else {
-      // Use true interpolated projection for smooth transition
+      // Use interpolated projection for smooth transition
+      // This includes t >= 1 for visual continuity at transition boundaries
+      // Using the same projection type throughout avoids subtle rendering
+      // differences between factory-created and custom projections
       currentProjection = createInterpolatedProjection(
         fromProjection,
         toProjection,
