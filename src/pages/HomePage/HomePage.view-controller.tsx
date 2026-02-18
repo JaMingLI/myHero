@@ -70,7 +70,7 @@ function HomePageViewController({
           ) : (
             /* Mobile/Tablet: Projection Transitions Globe */
             <ProjectionTransitions
-              className="w-[110px] h-[110px] md:w-[150px] md:h-[150px]"
+              className="w-[300px] h-[300px] md:w-[400px] md:h-[400px]"
               theme={projectionTheme}
               autoAnimate
             />
