@@ -23,6 +23,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Environment variables
+.claude
+.serena
 .env
 .env*.local
 .env.production

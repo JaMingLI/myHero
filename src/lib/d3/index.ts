@@ -14,11 +14,26 @@ export { geoVoronoi } from "d3-geo-voronoi";
 export { createGlobeRenderer } from "./geo-voronoi";
 export type { GlobeConfig, GlobeRenderer } from "./geo-voronoi";
 
+// Projection transitions renderer
+export { createProjectionTransitionsRenderer } from "./projection-transitions";
+export type {
+  ProjectionTransitionsConfig,
+  ProjectionTransitionsRenderer,
+} from "./projection-transitions";
+
 // Types
 export {
   DEFAULT_GLOBE_THEME,
   DARK_GLOBE_THEME,
   LIGHT_GLOBE_THEME,
   getGlobeTheme,
+  DARK_PROJECTION_THEME,
+  LIGHT_PROJECTION_THEME,
+  getProjectionTheme,
 } from "./types";
-export type { AirportData, GlobeTheme } from "./types";
+export type {
+  AirportData,
+  GlobeTheme,
+  ProjectionTheme,
+  ProjectionType,
+} from "./types";
