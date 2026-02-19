@@ -12,12 +12,17 @@
 import {
   getRepositoriesUsecase,
   getActivityUsecase,
+  sendContactUsecase,
 } from "./services";
 
 // Re-export as Service objects for cleaner API
 export const GitHubService = {
   getRepositories: getRepositoriesUsecase,
   getActivity: getActivityUsecase,
+};
+
+export const ContactService = {
+  sendContact: sendContactUsecase,
 };
 
 // Export DTOs

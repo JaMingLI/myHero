@@ -3,6 +3,7 @@ import { useForm, zodResolver } from "@/lib/react-hook-form";
 import type { UseFormReturn, SubmitHandler } from "@/lib/react-hook-form";
 import { useTranslation } from "@/lib/i18n";
 import { contactFormSchema, type ContactFormData } from "./ContactPage.schema";
+import { ContactService } from "@/domain";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ContactPageProps {
@@ -44,11 +45,12 @@ export const ContactPageViewModel = (
       setSubmitStatus("idle");
 
       try {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-
-        // Log the form data (in production, this would be sent to an API)
-        console.log("Contact form submitted:", data);
+        await ContactService.sendContact({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        });
 
         // Reset form and show success
         form.reset();
