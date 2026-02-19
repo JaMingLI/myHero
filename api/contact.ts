@@ -1,7 +1,9 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { config } from "dotenv";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Load .env.local for local development
+config({ path: ".env.local" });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -13,6 +15,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ error: "All fields are required" });
   }
+
+  // Initialize Resend client inside handler to ensure env vars are loaded
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const { error } = await resend.emails.send({

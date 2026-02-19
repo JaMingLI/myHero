@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --mode dev",
+    "dev:full": "vercel dev",
+    "env:pull": "vercel env pull .env.local",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -23,6 +25,7 @@
     "clsx": "2.1.1",
     "d3": "7.9.0",
     "d3-geo-voronoi": "2.1.0",
+    "dotenv": "^17.3.1",
     "framer-motion": "12.34.0",
     "i18next": "24.2.3",
     "react": "19.2.4",
