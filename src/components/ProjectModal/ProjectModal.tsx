@@ -1,8 +1,11 @@
 import { useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "@/lib/framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "@/lib/framer-motion";
 import { useMediaQuery, useFocusTrap, useBodyScrollLock } from "@/hooks";
 import type { TranslationKey } from "@/i18n/types";
-import type { Variants } from "@/lib/framer-motion";
+import type { Variants, PanInfo } from "@/lib/framer-motion";
+
+const DISMISS_THRESHOLD = 150; // pixels to trigger dismiss
+const VELOCITY_THRESHOLD = 500; // px/s fast swipe threshold
 
 export interface ProjectModalData {
   id: string;
@@ -62,6 +65,18 @@ export function ProjectModal({ isOpen, project, onClose, t }: ProjectModalProps)
   // Lock body scroll when modal is open
   useBodyScrollLock(isOpen);
 
+  // Drag-to-dismiss motion values
+  const y = useMotionValue(0);
+
+  const handleDragEnd = useCallback(
+    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      if (info.offset.y > DISMISS_THRESHOLD || info.velocity.y > VELOCITY_THRESHOLD) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
   // Handle escape key
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
@@ -110,10 +125,15 @@ export function ProjectModal({ isOpen, project, onClose, t }: ProjectModalProps)
               initial="hidden"
               animate="visible"
               exit="exit"
+              style={{ y }}
+              drag="y"
+              dragConstraints={{ top: 0, bottom: 0 }}
+              dragElastic={{ top: 0, bottom: 0.5 }}
+              onDragEnd={handleDragEnd}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Handle Bar */}
-              <div className="flex justify-center pt-3 pb-2">
+              <div className="flex justify-center pt-3 pb-2 cursor-grab active:cursor-grabbing">
                 <div className="w-10 h-1 bg-[var(--color-text-muted)] rounded-full" />
               </div>
 
