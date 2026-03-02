@@ -139,7 +139,7 @@ function MainLayoutViewController({
         {/* Social Links */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/JaMingLI"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
@@ -147,7 +147,7 @@ function MainLayoutViewController({
             <IconGitHub className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/alen-li-508b60255/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
@@ -155,7 +155,7 @@ function MainLayoutViewController({
             <IconLinkedin className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
           </a>
           <a
-            href="mailto:contact@alen.dev"
+            href="mailto:kampfer06@gmail.com"
             className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
           >
             <IconMail className="w-5 h-5 opacity-50 hover:opacity-100 transition-opacity" />
