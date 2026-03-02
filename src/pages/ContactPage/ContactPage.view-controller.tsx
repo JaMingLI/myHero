@@ -181,20 +181,20 @@ function ContactPageViewController({
             <ContactInfoItem
               icon={IconMail}
               label={t("contact.info.email")}
-              value="alen@example.com"
-              href="mailto:alen@example.com"
+              value="kampfer06@gmail.com"
+              href="mailto:kampfer06@gmail.com"
             />
             <ContactInfoItem
               icon={IconGitHub}
               label={t("contact.info.github")}
-              value="github.com/alen"
-              href="https://github.com/alen"
+              value="github.com/JaMingLI"
+              href="https://github.com/JaMingLI"
             />
             <ContactInfoItem
               icon={IconLinkedin}
               label={t("contact.info.linkedin")}
-              value="linkedin.com/in/alen"
-              href="https://linkedin.com/in/alen"
+              value="linkedin.com/in/alen-li-508b60255"
+              href="https://www.linkedin.com/in/alen-li-508b60255/"
             />
           </motion.div>
 
